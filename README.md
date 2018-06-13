@@ -28,4 +28,39 @@
 
 	For users, by pooling last-minute deals from venues around Singapore, a VIP nightlife experience can become more affordable, with greater choice and a streamlined booking process.
 
+##Core Features
+
+###Home Page with Search
+	Quick Description in Using the App
+	Navigation buttons on top, with links to: Home, Contact Us, Admin Panel
+	Search that allows users to select from a drop down menus to filter by: date, no. of pax, venue type
+
+###Listings Page
+	Displays all nightlife listings with 
+	Title
+	Description
+	Image (event poster/venue logo) 
+	Other relevant details such as price, date and time of door opening, in selected order (e.g. by price, venue type) 
+
+These details will be filled in by the venue manager in the Admin Page
+
+###Selection Page of table/sofa booking with drop-down menu
+	Drop-down menu for: number of pax, pricing-options (if any)
+
+###Booking Confirmation Page
+	Page that displays the confirmed venue, date, time, price of booking and number of pax
+
+###Admin Page Add/Update/Delete Deals with prices 
+	Connects to the database, allows users (venue owner) to create and change deals. The page  must have the ability to
+	Create entries with:
+	Title
+	Image
+	Description
+	Price
+	Expiry
+	Number of Pax	
+	
+	View all Submitted Entries
+	Edit Entries
+	Delete Entries
 
