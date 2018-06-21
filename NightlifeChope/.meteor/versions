@@ -62,6 +62,7 @@ reload@1.2.0
 retry@1.1.0
 routepolicy@1.0.13
 server-render@0.3.1
+session@1.1.7
 shell-server@0.3.1
 shim-common@0.1.0
 socket-stream-client@0.1.0

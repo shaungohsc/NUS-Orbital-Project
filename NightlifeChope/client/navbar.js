@@ -1,18 +1,15 @@
-import { Meteor } from 'meteor/meteor';
-import { Template } from 'meteor/templating';
+import './html/navbar.html'
 
-Meteor.startup(() => {
-  // code to run on server at startup
-  //Session.setDefault("templateName", "homeTemplate")
-});
-/*
-Template.body.helpers({
+Template.navbar.helpers({
   template_name(){
     return Session.get("templateName")
   }
 });
 
-Template.body.events({
+Template.navbar.events({
+  'click .home'() {
+    Session.set("templateName", "homeTemplate");
+  },
   'click .faq'() {
     Session.set("templateName", "faqTemplate");
   },
@@ -23,4 +20,3 @@ Template.body.events({
      Session.set("templateName", "adminTemplate");
   }
 });
-*/

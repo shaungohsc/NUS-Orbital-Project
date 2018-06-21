@@ -1,0 +1,20 @@
+<template name="navbar">  
+  <nav>
+      <ul>
+
+        <li> <a title="Home" class="home"> Home </a> </li>
+        <li> <a title="FAQ" class="faq"> FAQ </a> </li>
+        <li> <a title="Contact Us" class="contact"> Contact Us </a> </li>
+
+        <!-- empty links -->
+        <li> <a title="Login" href="#"> Login </a> </li>
+        <li> <a title="Sign Up" href="#"> Sign Up </a> </li>
+
+        <li> <a title="Admin" class="admin"> Admin </a> </li>
+      </ul>
+    </nav>
+
+
+  {{> Template.dynamic template=template_name }}
+
+</template>
