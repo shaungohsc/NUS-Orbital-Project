@@ -2,6 +2,9 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './html/main.html';
+import '../imports/api/listings.js';
+import './listingsPage.js';
+import './admin.js';
 
 /*
 Meteor.startup(function(){

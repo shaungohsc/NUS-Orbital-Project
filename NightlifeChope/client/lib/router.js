@@ -5,6 +5,14 @@ FlowRouter.route('/home', {
   }
 });
 
+FlowRouter.route('/listings', {
+  name: 'listings',
+  action() {
+    BlazeLayout.render('listingsTemplate');
+  }
+});
+
+
 FlowRouter.route('/faq', {
   name: 'home',
   action() {
