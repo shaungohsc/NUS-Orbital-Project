@@ -12,7 +12,7 @@
 
   <body>
   <h3>Home Page</h3>
-  <div class="purple white-text">
+  <div class="blue white-text">
 
     <div class = "input-field col s12">
       <label> Date </label>
@@ -24,6 +24,7 @@
         });
         </script>
     </div>
+    <br>
 
     <div class="input-field col s12">
       <select>
@@ -37,6 +38,7 @@
       </select>
       <label>Number of Guests</label>
     </div>
+    <br>
 
     <div class="input-field col s12">
       <select multiple>
@@ -53,8 +55,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <script>
     $(document).ready(function() {
+      M.AutoInit();
       $('select').formSelect();
-
       };
   </script>
 
