@@ -14,23 +14,27 @@
 
 <body>
   <header>
-    <h1> <a title="Home" href="/home"> NightlifeChope </a> </h1>
+      <h1> <a title="Home" href="/home"> NightlifeChope </a> </h1>
 
-  {{ > navbar }}
-  </header>
+    {{ > navbar }}
+    </header>
+
+  <div class="container">
+    <div class="red white-text"> Search Bar </div>
+
+    <button class="btn waves-effect"> Search </button>
+  </div>
 
   <main>
-
-{{> Template.dynamic template=template_name }}
-
+    {{> Template.dynamic template=template_name }}
   </main>
 
   <footer>
     <h3> NightlifeChope </h3>
     <ul>
-      <li> <a title="About" href="/about" class="about"> About </a> </li>
-      <li> <a title="Contact Us" href="/contact" class="contact"> Contact Us </a> </li>
-      <li> <a title="FAQ" href="/faq" class="faq"> FAQ </a> </li>
+      <li> <a title="About" href="/about"> About </a> </li>
+      <li> <a title="Contact Us" href="/contact"> Contact Us </a> </li>
+      <li> <a title="FAQ" href="/faq"> FAQ </a> </li>
 
       <!-- empty links -->
       <li> <a title="Privacy Policy" href="/privacypolicy"> Privacy Policy </a> </li>
