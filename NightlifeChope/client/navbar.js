@@ -1,4 +1,5 @@
 import './html/navbar.html'
+import './html/main.html'
 
 Template.navbar.helpers({
   template_name(){

@@ -25,30 +25,7 @@
     <button class="btn waves-effect"> Search </button>
   </div>
 
-  <main>
-    {{> Template.dynamic template=template_name }}
-  </main>
-
-  <footer>
-    <h3> NightlifeChope </h3>
-    <ul>
-      <li> <a title="About" href="/about"> About </a> </li>
-      <li> <a title="Contact Us" href="/contact"> Contact Us </a> </li>
-      <li> <a title="FAQ" href="/faq"> FAQ </a> </li>
-
-      <!-- empty links -->
-      <li> <a title="Privacy Policy" href="/privacypolicy"> Privacy Policy </a> </li>
-    </ul>
-
-    <h3> Social Media </h3>
-    <ul>
-      <li> <a title="Facebook" href="#"> Facebook </a> </li>
-      <li> <a title="Twitter" href="#"> Twitter </a> </li>
-      <li> <a title="Instagram" href="#"> Instagram </a> </li>
-    </ul>
-
-    <p> © Copyright 2018 by Marvin Tan and Shaun Goh, Singapore. All rights reserved. </p>
-  </footer>
+  {{ > MainLayout }}
 
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
