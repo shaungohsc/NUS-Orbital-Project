@@ -1,18 +1,53 @@
 <template name="navbar">
-  <nav>
-      <ul>
+  <head>
+    <meta charset="utf-8">
+    <title> NightlifeChope - main </title>
 
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  </head>
+
+  <body>
+    <nav class="deep-purple white-text">
+      <h1 id="site-logo"> <a title="Home" href="/home" class="brand-logo white-text">
+          NightlifeChope </a> </h1>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li> <a title="Home" href="/home"> Home </a> </li>
+          <li> <a title="Listings" href="/listings"> Listings </a> </li>
+          <li> <a title="FAQ" href="/faq"> FAQ </a> </li>
+          <li> <a title="Contact Us" href="/contact"> Contact Us </a> </li>
+
+          <!-- empty links -->
+          <li> <a title="Login" href="#"> Login </a> </li>
+          <li> <a title="Sign Up" href="#"> Sign Up </a> </li>
+
+          <li> <a title="Admin" href="/admin"> Admin </a> </li>
+        </ul>
+
+      <ul class="sidenav" id="mobile-demo">
         <li> <a title="Home" href="/home"> Home </a> </li>
         <li> <a title="Listings" href="/listings"> Listings </a> </li>
         <li> <a title="FAQ" href="/faq"> FAQ </a> </li>
         <li> <a title="Contact Us" href="/contact"> Contact Us </a> </li>
-
         <!-- empty links -->
         <li> <a title="Login" href="#"> Login </a> </li>
         <li> <a title="Sign Up" href="#"> Sign Up </a> </li>
-
         <li> <a title="Admin" href="/admin"> Admin </a> </li>
       </ul>
     </nav>
 
+    <script>
+      $(document).ready(function(){
+      $('.sidenav').sidenav();
+      });
+    </script>
+
+  </body>
 </template>
