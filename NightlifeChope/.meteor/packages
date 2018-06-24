@@ -25,3 +25,4 @@ accounts-ui
 kadira:flow-router
 underscore
 session
+accounts-password

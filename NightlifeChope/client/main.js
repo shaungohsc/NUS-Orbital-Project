@@ -5,6 +5,7 @@ import './html/main.html';
 import '../imports/api/listings.js';
 import './listingsPage.js';
 import './admin.js';
+import '../imports/startup/accounts-config.js';
 
 /*
 Meteor.startup(function(){
