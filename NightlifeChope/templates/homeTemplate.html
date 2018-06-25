@@ -20,10 +20,11 @@
       <label> Date </label>
       <input type="date" class="datepicker deep-purple">
         <script>
-          $('.datepicker').pickadate({
-            selectMonths: true, // Enable Month Selection
-            selectYears: 10 // Creates a dropdown of 10 years to control year
-          });
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.datepicker');
+          var instances = M.Datepicker.init(elems, options);
+          M.Datepicker.format("yyyy-mm-dd");
+        });
         </script>
     </div>
 

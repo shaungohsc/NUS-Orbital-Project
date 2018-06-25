@@ -19,6 +19,11 @@ header {
   display: inline-block;
 }
 
+nav #loginButtons {
+  float: right;
+  display: block;
+}
+
 header navbar {
   width: 100%;
   border: 1%;

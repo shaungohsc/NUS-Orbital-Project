@@ -26,4 +26,4 @@ kadira:flow-router
 underscore@1.0.10
 session@1.1.7
 accounts-password@1.5.1
-useraccounts:materialize
+service-configuration
