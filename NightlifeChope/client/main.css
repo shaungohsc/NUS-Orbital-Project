@@ -5,7 +5,7 @@ header {
   border: 0%;
   padding: 0%;
   margin: 0% 0% 0% 0%;
-  display: inline;
+  display: inline-block;
 }
 
 #site-logo {
@@ -16,7 +16,7 @@ header {
   border: 0%;
   padding: 0%;
   margin: 0% 0% 0% 0%;
-  display: block;
+  display: inline-block;
 }
 
 header navbar {
@@ -24,5 +24,5 @@ header navbar {
   border: 1%;
   padding: 0.5%;
   margin: 0%;
-  display: inline;
+  display: inline-block;
 }

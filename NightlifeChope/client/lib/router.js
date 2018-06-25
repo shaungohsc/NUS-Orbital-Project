@@ -33,3 +33,10 @@ FlowRouter.route('/contact', {
     BlazeLayout.render('contactTemplate', {main: 'contactTemplate'});
   }
 });
+
+FlowRouter.route('/example', {
+  name: 'materilize demo',
+  action() {
+    BlazeLayout.render('example', {main: 'example'});
+  }
+});
