@@ -1,10 +1,22 @@
 <template name="adminTemplate">
     <h1> Admin Dashboard </h1>
 
-    <form class = "adminform" >
-    	Name: <input type="text" name="name" size="30" placeholder="Listing name" />
-    	Description: <textarea name="description" style="width:250px;height:150px;"></textarea><br>
-    	Image: <input type="file" name="image" placeholder="Image" />
-    	<input type="submit" name="submit" placeholder="Submit" />
-    </form>
+
+    <div class="deep-purple white-text">
+      <form class = "adminform" >
+      	Name: <input class="white-text" type="text" name="name"
+        size="30" placeholder="Listing name" /> <br>
+
+        Number of Pax: <input class="white-text" type="number"
+        size="2" placeholder="Number of Pax" /> <br>
+
+      	Description: <textarea class="white-text" name="description"
+        style="width:250px;height:150px;"></textarea><br>
+
+      	Image: <input class="white-text" type="file" name="image"
+        placeholder="Image" /> <br> <br>
+
+      	<input type="submit" name="submit" placeholder="Submit" /> <br>
+      </form>
+    </div>
 </template>
