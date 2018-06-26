@@ -1,0 +1,68 @@
+<template name="listingsDisplay">
+	<ul class="collection container">
+      {{#each listings}}
+	      {{ > singleListing}}
+      {{/each}}
+	</ul>
+
+	<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Editing Listing</h4>
+      {{ > modifyListing currentListing}}
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
+    </div>
+  </div>
+</template>
+
+
+<template name="singleListing">
+	<li class="collection-item"> {{name}} ({{pax}}) 
+		<a href="#!" class="delete material-icons secondary-content">delete</a>
+		<a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+		<br> {{description}} </li>
+
+	<script>
+		$(document).ready(function(){
+    	$('.modal').modal();
+  		});
+	</script>
+
+</template>
+
+<template name="modifyListing">
+	<form class = "editform col s12 container">
+        <div class="row">
+          <div class="input-field col s6">
+        	 <input type="text" name="name" value={{name}}/>
+           <label for="name" class="active">Listing Name</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class ="input-field col s6">
+            <select name="pax">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+           <label for="pax">Number of People</label>
+            
+          </div>
+          <br>
+        </div>
+
+        <div class="row">
+      	 <div class="input-field col s12">
+          <textarea id="description" class="materialize-textarea" value="description"></textarea>
+          <label for="description" class="active">Description</label>
+        </div>
+        </div>
+
+  	  	<button class="btn waves-effect waves-light" type="submit" name="submit">Submit <i class="material-icons right">send</i> </button>
+  	  	<button class="btn waves-effect waves-light " type="submit" name="submit" style="color:gray">Cancel</button>
+      </form>
+  </template>

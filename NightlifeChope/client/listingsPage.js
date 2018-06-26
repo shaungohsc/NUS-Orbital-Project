@@ -7,9 +7,12 @@ import { Listings } from '../imports/api/listings.js';
 import '../templates/listingsTemplate.html';
 import '../templates/adminTemplate.html';
 
-Template.listingsTemplate.helpers({
+Template.listingsDisplay.helpers({
   listings() {
     return Listings.find({});
+  },
+  currentListing() {
+    return Session.get('selectedListing');
   },
   items: [
     { name: "foo", pet: "dog" },
@@ -17,10 +20,20 @@ Template.listingsTemplate.helpers({
   ]
 });
 
-Template.listingsTemplate.events({
+Template.listingsDisplay.events({
   'click li'() {
   	console.log(this._id);
   },
+  'click .delete'() {
+    if(confirm('Delete listing?')){
+      Listings.remove(this._id);
+    }
+  },
+  'click .edit'() {
+    Session.set('selectedListing', this);
+    console.log(this);
+
+  }
 });
 
 

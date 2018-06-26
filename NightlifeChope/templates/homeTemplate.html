@@ -3,35 +3,39 @@
   <h1> Welcome to NightlifeChope </h1>
   <div class="deep-purple grey-text">
 
-    <div class = "input-field col s1">
-      <label> Date </label> <br>
-      <input type="date" class="white-text datepicker">
+    <div class="row">
+      <div class = "input-field col s3">
+        <label> Date </label> <br>
+        <input type="date" class="white-text datepicker">
+      </div>
+
+      <div class="input-field col s3 valign-wrapper">
+        <select>
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5">5 Guests</option>
+          <option value="6">6 Guests</option>
+        </select>
+        <label> Number of Guests </label>
+      </div>
+
+      <div class="col s3 valign-wrapper">
+        <label>
+          <input type="checkbox" class="filled-in" checked="checked" />
+          <span>Clubs</span>
+        </label>
+        <label>
+          <input type="checkbox" class="filled-in" checked="checked" />
+          <span>Bars</span>
+        </label>
+      </div>
+
+      <div class="col s3 valign-wrapper">
+        <button class="white black-text btn waves-effect"> Search </button>
+      </div>
     </div>
-
-    <div class="input-field col s1">
-      <select>
-        <option value="1">1 Guest</option>
-        <option value="2">2 Guests</option>
-        <option value="3">3 Guests</option>
-        <option value="4">4 Guests</option>
-        <option value="5">5 Guests</option>
-        <option value="6">6 Guests</option>
-      </select>
-      <label> Number of Guests </label>
-    </div>
-
-    <p>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Clubs</span>
-      </label>
-      <label>
-        <input type="checkbox" class="filled-in" checked="checked" />
-        <span>Bars</span>
-      </label>
-    </p>
-
-    <button class="white black-text btn waves-effect"> Search </button>
   </div>
 
   <script>

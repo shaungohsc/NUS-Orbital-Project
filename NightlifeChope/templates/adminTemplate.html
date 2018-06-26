@@ -2,21 +2,52 @@
     <h1> Admin Dashboard </h1>
 
 
-    <div class="deep-purple white-text">
-      <form class = "adminform" >
-      	Name: <input class="white-text" type="text" name="name"
-        size="30" placeholder="Listing name" /> <br>
+    <div>
+      <form class = "adminform col s12 container">
+        <div class="row">
+          <div class="input-field col s6">
+        	 <input type="text" name="name"/>
+           <label for="name">Listing Name</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class ="input-field col s6">
+            <select name="pax">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+           <label for="pax">Number of People</label>
+            
+          </div>
+          <br>
+        </div>
 
-        Number of Pax: <input class="white-text" type="number"
-        size="2" placeholder="Number of Pax" /> <br>
-
-      	Description: <textarea class="white-text" name="description"
-        style="width:250px;height:150px;"></textarea><br>
+        <div class="row">
+      	 <div class="input-field col s12">
+          <textarea id="description" class="materialize-textarea"></textarea>
+          <label for="description">Description</label>
+        </div>
+        </div>
 
       	Image: <input class="white-text" type="file" name="image"
         placeholder="Image" /> <br> <br>
 
-      	<input type="submit" name="submit" placeholder="Submit" /> <br>
+      	  <button class="btn waves-effect waves-light" type="submit" name="submit">Submit <i class="material-icons right">send</i> </button><br>
       </form>
     </div>
+
+
+    {{ > listingsDisplay}}
+
+  <script>
+   $(document).ready(function(){
+      $('selcet').formSelect();
+    });
+  </script>
+  
 </template>
+

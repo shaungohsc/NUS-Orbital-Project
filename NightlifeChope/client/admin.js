@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import './html/navbar.html'
 import './html/main.html'
 
@@ -14,11 +15,15 @@ Template.adminTemplate.events({
     console.log(event);
     var listingName = event.target.name.value
     var listingDesc = event.target.description.value;
+    var createdBy = Meteor.user().username;
 
-    console.log(listingName + "\n" + listingDesc);
+    console.log(listingName + " " + listingDesc + " " + createdBy);
     Listings.insert({
-    	name: listingName, 
-    	description: listingDesc
+    	name: event.target.name.value, 
+      pax: event.target.pax.value,
+    	description: event.target.description.value,
+      createdBy: Meteor.userId(),
+      createdAt: new Date()
     });
 	}
 });
