@@ -13,13 +13,13 @@ Template.adminTemplate.events({
   	event.preventDefault();
   	console.log("Form submitted");
     console.log(event);
-    var listingName = event.target.name.value
+    var listingName = event.target.name.value;
     var listingDesc = event.target.description.value;
     var createdBy = Meteor.user().username;
 
     console.log(listingName + " " + listingDesc + " " + createdBy);
     Listings.insert({
-    	name: event.target.name.value, 
+    	name: event.target.name.value,
       pax: event.target.pax.value,
     	description: event.target.description.value,
       createdBy: Meteor.userId(),
