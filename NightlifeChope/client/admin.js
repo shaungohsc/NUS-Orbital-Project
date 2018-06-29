@@ -17,11 +17,12 @@ Template.adminTemplate.events({
     var listingDesc = event.target.description.value;
     var createdBy = Meteor.user().username;
 
-    console.log(listingName + " " + listingDesc + " " + createdBy);
+    console.log(listingName + " " + listingDesc + " " + createdBy + " | " + event.target.venuetype.value);
     Listings.insert({
     	name: event.target.name.value,
       pax: event.target.pax.value,
     	description: event.target.description.value,
+      type: event.target.venuetype.value,
       createdBy: Meteor.userId(),
       createdAt: new Date()
     });

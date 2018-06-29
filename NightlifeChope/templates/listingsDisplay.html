@@ -21,7 +21,7 @@
 	<li class="collection-item"> {{name}} ({{pax}}) 
 		<a href="#!" class="delete material-icons secondary-content">delete</a>
 		<a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
-		<br> {{description}} </li>
+		<br><span style="white-space: pre-line">{{description}}</span></li>
 
 	<script>
 		$(document).ready(function(){
@@ -60,7 +60,7 @@
 
         <div class="row">
       	 <div class="input-field col s12">
-          <textarea id="description" class="materialize-textarea" value="description"></textarea>
+          <textarea id="description" class="materialize-textarea" value={{description}}></textarea>
           <label for="description" class="active">Description</label>
         </div>
         </div>
