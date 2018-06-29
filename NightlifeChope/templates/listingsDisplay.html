@@ -25,7 +25,10 @@
 
 	<script>
 		$(document).ready(function(){
-    	$('.modal').modal();
+    		$('.modal').modal();
+    		$('select').formSelect();
+      		$('.datepicker').datepicker();
+      		$('.timepicker').timepicker();
   		});
 	</script>
 
@@ -35,7 +38,7 @@
 	<form class = "editform col s12 container">
         <div class="row">
           <div class="input-field col s6">
-        	 <input type="text" name="name" value={{name}}/>
+        	 <input type="text" name="name" value={{name}} />
            <label for="name" class="active">Listing Name</label>
           </div>
         </div>
@@ -62,7 +65,7 @@
         </div>
         </div>
 
-  	  	<button class="btn waves-effect waves-light" type="submit" name="submit">Submit <i class="material-icons right">send</i> </button>
+  	  	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="submitEdit">Submit <i class="material-icons right">send</i> </button>
   	  	<button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
       </form>
   </template>

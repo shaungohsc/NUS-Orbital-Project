@@ -25,6 +25,13 @@ Template.adminTemplate.events({
       createdBy: Meteor.userId(),
       createdAt: new Date()
     });
+
+    event.target.name.value = "";
+    event.target.description.value = "";
+    event.target.pax.value = 1;
+    event.target.listingDate.value = "";
+    event.target.startTime.value = "";
+    event.target.endTime.value = "";
 	}
 });
 
