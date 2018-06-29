@@ -13,16 +13,16 @@ Template.homeTemplate.events({
 
     var queryDate = event.target.date.value;
     var queryNumPax = event.target.pax.value;
-    var queryClub = event.target.clubsBool.value;
-    var queryBar = event.target.barsBool.value;
+    var queryBars = event.target.barsBool.checked;
+    var queryClubs = event.target.clubsBool.checked;
     var createdBy = Meteor.user().username;
 
-    console.log(queryDate + " " + queryNumPax + " " + queryClub + " " + queryBar);
+    console.log(queryDate + " " + queryNumPax + " " + queryClubs + " " + queryBars);
     Queries.insert({
     	date: event.target.date.value,
       pax: event.target.pax.value,
-    	club: event.target.clubsBool.value,
-      bar: event.target.barsBool.value,
+      barsBool: event.target.barsBool.checked,
+      clubsBool: event.target.clubsBool.checked,
       user: Meteor.userId(),
       createdAt: new Date(),
     });

@@ -1,47 +1,48 @@
 <template name="homeTemplate">
 
   <h1> Welcome to NightlifeChope </h1>
-  <div class="deep-purple grey-text">
+  <div class="deep-purple teal-text">
 
     <div class="row">
       <form class="queryForm">
       <div class = "input-field col s3">
-        <input type="date" name="date" class="white-text datepicker">
+        <input type="text" name="date" class="white-text datepicker">
         <label for="date"> Date </label>
       </div>
 
-      <div class="input-field col s3 valign-wrapper">
+      <div class="input-field col s3 valign-wrapper ">
         <select name="pax">
-          <option value="1">1 Guest</option>
+          <option white-text value="1">1 Guest</option>
           <option value="2">2 Guests</option>
           <option value="3">3 Guests</option>
           <option value="4">4 Guests</option>
           <option value="5">5 Guests</option>
           <option value="6">6 Guests</option>
         </select>
-        <label for="pax"> Number of Guests </label>
+        <label> Number of Guests </label>
       </div>
 
       <div class="col s3 valign-wrapper">
-      <p>
-        <label>
-          <input type="checkbox" name="clubsBool" class="filled-in" checked="checked" />
-          <span> Clubs </span>
-        </label>
-      </p>
-      <br>
+        <p> Search For </p>
+        <p>
+          <label>
+            <input type="checkbox" name="clubsBool" class="filled-in" checked="checked" />
+            <span> Clubs </span>
+          </label>
+        </p>
+        <br>
 
-      <p>
-        <label>
-          <input type="checkbox" name="barsBool" class="filled-in" checked="checked" />
-          <span> Bars </span>
-        </label>
-      </p>
-      </div>
+        <p>
+          <label>
+            <input type="checkbox" name="barsBool" class="filled-in" checked="checked" />
+            <span> Bars </span>
+          </label>
+        </p>
+    </div>
 
-      <div class="col s3 valign-wrapper">
-        <input class="white black-text btn waves-effect" type="submit" value="Search">
-      </div>
+    <div class="col s3 valign-wrapper">
+      <input class="white black-text btn waves-effect" type="submit" value="Search">
+    </div>
 
     </form>
     </div>
