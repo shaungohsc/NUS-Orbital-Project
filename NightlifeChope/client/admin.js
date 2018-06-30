@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
 import './html/navbar.html'
 import './html/main.html'
 
@@ -11,18 +12,23 @@ Template.adminTemplate.helpers({
 Template.adminTemplate.events({
   'submit .adminform'(event) {
   	event.preventDefault();
-  	console.log("Form submitted");
+
+    //Call Meteor method
+    // Meteor.call('listings.insert', event.target);
+
+    console.log("Form submitted");
     console.log(event);
-    var listingName = event.target.name.value;
-    var listingDesc = event.target.description.value;
+    var target = event.target;
+    var listingName = target.name.value;
+    var listingDesc = target.description.value;
     var createdBy = Meteor.user().username;
 
-    console.log(listingName + " " + listingDesc + " " + createdBy + " | " + event.target.venuetype.value);
+    console.log(listingName + " " + listingDesc + " " + createdBy + " | " + target.venuetype.value);
     Listings.insert({
-    	name: event.target.name.value,
-      pax: event.target.pax.value,
-    	description: event.target.description.value,
-      type: event.target.venuetype.value,
+      name: target.name.value,
+      pax: parseInt(target.pax.value),
+      description: target.description.value,
+      type: target.venuetype.value,
       createdBy: Meteor.userId(),
       createdAt: new Date()
     });
@@ -35,7 +41,6 @@ Template.adminTemplate.events({
     event.target.endTime.value = "";
 	}
 });
-
 
 
 

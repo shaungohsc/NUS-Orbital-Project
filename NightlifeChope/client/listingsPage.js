@@ -6,6 +6,10 @@ import { Listings } from '../imports/api/listings.js';
 import '../templates/listingsTemplate.html';
 import '../templates/adminTemplate.html';
 
+Template.listingsDisplay.onCreated(function listingsDisplayOnCreated() {
+  Meteor.subscribe('listings');
+});
+
 Template.listingsDisplay.helpers({
   listings() {
     return Listings.find({});
