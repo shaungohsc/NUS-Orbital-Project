@@ -12,9 +12,19 @@ Template.listingsDisplay.onCreated(function listingsDisplayOnCreated() {
 
 Template.listingsDisplay.helpers({
   listings() {
-    return Listings.find({});
+    return Listings.find();
   },
+  listingsFiltered() {
+    return Listings.find({
+      pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
+      type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
+    }, { sort : { pax : 1 }}
+    );
+  }, 
+  // db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } ) -- sample
   currentListing() {
+    console.log("Current listing:");
+    console.log(Session.get('selectedListing'));
     return Session.get('selectedListing');
   },
   items: [
@@ -22,6 +32,28 @@ Template.listingsDisplay.helpers({
     { name: "bar", pet: "cat" }
   ]
 });
+
+// Template.adminTemplate.helpers({
+//   listings() {
+//     return Listings.find();
+//   },
+//   // db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } )
+//   currentListing() {
+//     return Session.get('selectedListing');
+//   },
+//   items: [
+//     { name: "foo", pet: "dog" },
+//     { name: "bar", pet: "cat" }
+//   ]
+// });
+
+
+
+
+Template.registerHelper('checkEq', (a, b) => a === b); //doesn't work in helpers.js???
+
+
+
 
 Template.listingsDisplay.events({
   'click li'() {
@@ -34,6 +66,23 @@ Template.listingsDisplay.events({
   },
   'click .edit'() {
     Session.set('selectedListing', this);
+
+    //To make sure the existing option is selected in the edit menu. Works but visually displays the previously selected listing's option
+    //https://www.daftlogic.com/information-programmatically-preselect-dropdown-using-javascript.htm
+    var paxOptions = document.getElementById("paxEdit").options;
+    for ( var i = 0; i < paxOptions.length; i++ ) {
+        if ( paxOptions[i].value == this.pax ) {
+            paxOptions[i].selected = true;
+            return;
+        }
+    }
+    var typeOptions = document.getElementById("typeEdit").options;
+    for ( var i = 0; i < typeOptions.length; i++ ) {
+        if ( typeOptions[i].value == this.pax ) {
+            typeOptions[i].selected = true;
+            return;
+        }
+    }
     console.log(this);
   },
   'submit .editform'(event) {

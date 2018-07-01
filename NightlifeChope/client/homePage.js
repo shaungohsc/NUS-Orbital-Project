@@ -2,12 +2,38 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Queries } from '../imports/api/queries.js';
 import { Session } from 'meteor/session'
+import noUiSlider from 'nouislider';
 
 Template.homeTemplate.helpers({
   'searched'(){
     return Session.get("searched");
   }
 });
+
+Template.homeTemplate.onRendered(function() {
+   noUiSlider.create(this.$('#priceSlider')[0], { 
+     connect: true, 
+     range: { min: 0, max: 100 }, 
+     start: [0, 50]
+  });
+  console.log("slider created");   
+  console.log(this.$('#priceSlider'));
+});
+
+// var slider = document.getElementById('priceSlider');
+//   noUiSlider.create(slider, {
+//    start: [20, 80],
+//    connect: true,
+//    step: 1,
+//    orientation: 'horizontal', // 'horizontal' or 'vertical'
+//    range: {
+//      'min': 0,
+//      'max': 1000
+//    },
+//    format: wNumb({
+//      decimals: 0
+//    })
+//   });
 
 Template.homeTemplate.events({
   'submit .queryForm'(event) {
@@ -25,8 +51,15 @@ Template.homeTemplate.events({
     console.log(queryDate + " " + queryNumPax + " " + queryClubs + " " + queryBars);
     Session.set("queryDate", queryDate);
     Session.set("queryNumPax", queryNumPax);
-    Session.set("queryBars", queryBars);
-    Session.set("queryClubs", queryClubs);
+    // Session.set("queryBars", queryBars);
+    // Session.set("queryClubs", queryClubs);
+    if (queryBars && queryClubs) {
+      Session.set("queryType", ["bar","club"]);
+    } else if (queryBars) {
+      Session.set("queryType", ["bar"]);
+    } else {
+      Session.set("queryType", ["club"]);
+    }
     Session.set("searched", true);
 
     Queries.insert({

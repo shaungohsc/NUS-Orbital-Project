@@ -1,14 +1,24 @@
 <template name="listingsDisplay">
 	<ul class="collection container">
+    
+    {{#if adminView}} 
       {{#each listings}}
 	      {{ > singleListing}}
       {{/each}}
+
+    {{else}}
+      {{#each listingsFiltered}}
+        {{ > singleListing}}
+      {{/each}}
+
+    {{/if}}
+
 	</ul>
 
 	<div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Editing Listing</h4>
-      {{ > modifyListing currentListing}}
+      <h5>Editing Listing</h5>
+      {{ > adminForm currentListing}}
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
@@ -18,9 +28,17 @@
 
 
 <template name="singleListing">
-	<li class="collection-item"> {{name}} ({{pax}}) 
-		<a href="#!" class="delete material-icons secondary-content">delete</a>
-		<a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+	<li class="collection-item"> <strong>{{name}}</strong>
+    {{#if checkEq type "bar"}}
+    <i class="tiny material-icons">local_bar</i>
+    {{else if checkEq type "club"}}
+    <i class="tiny material-icons">stars</i>
+    {{/if}}
+    for {{pax}} - <em>${{price}}</em>
+    {{#if ../adminView}}
+		  <a href="#!" class="delete material-icons secondary-content">delete</a>
+		  <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+    {{/if}}
 		<br><span style="white-space: pre-line">{{description}}</span></li>
 
 	<script>
@@ -35,6 +53,12 @@
 </template>
 
 <template name="modifyListing">
+  {{#if currentListing}}
+    it's true
+    {{name}}
+    {{else}}
+    nope
+    {{/if}}
 	<form class = "editform col s12 container">
         <div class="row">
           <div class="input-field col s6">
@@ -69,3 +93,4 @@
   	  	<button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
       </form>
   </template>
+

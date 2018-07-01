@@ -5,12 +5,12 @@
 
     <div class="row">
       <form class="queryForm">
-      <div class = "input-field col s3">
+      <div class = "input-field col s2">
         <input type="text" name="date" class="white-text datepicker">
         <label for="date"> Date </label>
       </div>
 
-      <div class="input-field col s3 valign-wrapper ">
+      <div class="input-field col s2 valign-wrapper ">
         <select name="pax">
           <option white-text value=2>2 Guest</option>
           <option value=3>3 Guests</option>
@@ -23,7 +23,7 @@
         <label> Number of Guests </label>
       </div>
 
-      <div class="col s4 valign-wrapper">
+      <div class="col s3 valign-wrapper">
         <p> Search For&nbsp;&nbsp;&nbsp;</p>
         <p>
           <label>
@@ -40,24 +40,38 @@
         </p>
     </div>
 
+    
+
     <div class="col s2 valign-wrapper">
       <input class="white black-text btn waves-effect" type="submit" value="Search">
     </div>
-
     </form>
     </div>
   </div>
 
+<div id="priceSlider"></div>
 
   {{#if searched}}
-  {{ > listingsDisplay}}
+  {{ > listingsDisplay adminView=false}}
   {{/if}}
 
 
   <script>
     $(document).ready(function() {
       M.AutoInit();
-    });
+
+    //   var slider = document.getElementById('  ');
+
+    //   noUiSlider.create(slider, {
+    //     start: [20, 80],
+    //     connect: true,
+    //     range: {
+    //       'min': 0,
+    //       'max': 100
+    //     }
+    //   });
+    //   console.log("slider done");
+    });     
   </script>
 
 </template>

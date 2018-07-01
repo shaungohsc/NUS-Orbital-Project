@@ -21,21 +21,29 @@ Template.adminTemplate.events({
     var target = event.target;
     var listingName = target.name.value;
     var listingDesc = target.description.value;
+    var price = target.price.value;
     var createdBy = Meteor.user().username;
+    var date = target.listingDate.value;
+    // var date = ()  
 
     console.log(listingName + " " + listingDesc + " " + createdBy + " | " + target.venuetype.value);
+    console.log(date);
     Listings.insert({
       name: target.name.value,
       pax: parseInt(target.pax.value),
       description: target.description.value,
       type: target.venuetype.value,
+      price: price,
+      date: date,
       createdBy: Meteor.userId(),
       createdAt: new Date()
     });
 
     event.target.name.value = "";
-    event.target.description.value = "";
     event.target.pax.value = 1;
+    event.target.venuetype.value = 1;
+    event.target.price.value = "1 ";
+    event.target.description.value = "";
     event.target.listingDate.value = "";
     event.target.startTime.value = "";
     event.target.endTime.value = "";
