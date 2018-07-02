@@ -1,9 +1,9 @@
 <template name="bookingTemplate">
 
-  <h2 class="deep-purple-text"> Reservation Checkout</h2>
+  <h2 class="deep-purple-text container"> Reservation Checkout</h2>
   <div class="divider"></div> <br>
-  <form class="bookingForm">
-    <div class="row">
+  <form class="bookingForm container">
+    <!--<div class="row">
       <div class="col s6">
         <strong> Date </strong>
       </div>
@@ -11,13 +11,16 @@
       <div class="col s6">
         <strong> Doors Open </strong>
       </div>
-    </div>
+    </div>-->
 
+    <div class="row">
+      <div class="col s8 offset-s2">
+      Making a booking for:
+      </div>      
+    </div>
     <div class="row" style="font-size: large">
-      <div class="col s2">
-      </div>
-      <div class="col s8">
-        {{#with bookListing}}
+      <div class="col s8 offset-s2">
+        {{#with currentListing}}
           <strong>{{name}}</strong>
 
           {{#if checkEq type "bar"}}
@@ -25,11 +28,9 @@
           {{else if checkEq type "club"}}
             <i class="tiny material-icons">stars</i>
           {{/if}}
-          for {{pax}} - <em>${{price}}</em> - {{date}}
+          for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
           <br><span style="white-space: pre-line">{{description}}</span>
         {{/with}}
-      </div>
-      <div class="col s2">
       </div>
     </div>
 

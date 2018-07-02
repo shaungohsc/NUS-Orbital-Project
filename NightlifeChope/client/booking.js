@@ -51,8 +51,15 @@ Template.bookingTemplate.events({
     //   createdAt: new Date(),
     // });
     console.log("For the listing:");
-    console.log(Listings.find({_id : Session.get('selectedListing')._id}));
-    Listings.update(Session.get('selectedListing')._id, {
+    console.log(Session.get('selectedListing'));
+    console.log("id: " + Session.get('selectedListing')._id);
+    var id = Session.get('selectedListing')._id;
+
+    console.log(Listings.find({_id : id}));
+
+    console.log(Listings.find({_id : id}).count());
+    console.log(Listings.find({_id : id}).fetch()[0]);
+    Listings.update(id, {
       $set: { booking: newBooking
             },
     });
@@ -61,6 +68,10 @@ Template.bookingTemplate.events({
     BlazeLayout.render('confirmationTemplate', {main: 'confirmationTemplate'});
 
     console.log("After update:");
-    console.log(Listings.find({_id : Session.get('selectedListing')._id}));
+    console.log(Listings.find({_id : id}).fetch()[0]);
+
+    var updatedListing = Listings.find({_id : id}).fetch()[0];
+    Session.set("selectedListing", updatedListing);
+    console.log("submit .bookingForm done");
 	}
 });

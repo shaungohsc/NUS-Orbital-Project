@@ -18,6 +18,12 @@ Template.registerHelper('currentListing', function(){
     return Session.get('selectedListing');
   });
 
+Template.registerHelper('checkEq', (a, b) => a === b); //doesn't work in helpers.js???
+
+Template.registerHelper('formatDate', function(datetime) {
+  return moment(datetime).format("dddd, MMMM Do YYYY");
+});
+
 Template.listingsDisplay.onCreated(function listingsDisplayOnCreated() {
   Meteor.subscribe('listings');
 });
@@ -63,12 +69,6 @@ Template.listingsDisplay.helpers({
 // });
 
 
-
-Template.registerHelper('checkEq', (a, b) => a === b); //doesn't work in helpers.js???
-
-
-
-
 Template.listingsDisplay.events({
   'click li'() {
   	console.log(this._id);
@@ -80,6 +80,7 @@ Template.listingsDisplay.events({
   },
   'click .edit'() {
     Session.set('selectedListing', this);
+    console.log("--- listing selected");
 
     //To make sure the existing option is selected in the edit menu. Works but visually displays the previously selected listing's option
     //https://www.daftlogic.com/information-programmatically-preselect-dropdown-using-javascript.htm
@@ -101,6 +102,7 @@ Template.listingsDisplay.events({
   },
   'click .expand'() {
     Session.set('selectedListing', this);
+    console.log("--- listing selected");
   },
   'submit .editform'(event) {
     event.preventDefault();
@@ -118,17 +120,3 @@ Template.listingsDisplay.events({
   },
 });
 
-Template.home.events({
-  'click li'() {
-    console.log(this._id);
-  },
-  'click .delete'() {
-    if(confirm('Delete listing?')){
-      Listings.remove(this._id);
-    }
-  },
-  'click .edit'() {
-    Session.set('selectedListing', this);
-    console.log(this);
-  }
-});

@@ -69,6 +69,11 @@ Template.homeTemplate.onRendered(function() {
 */
 
 Template.homeTemplate.events({
+  'click book'() {
+    Session.set('selectedListing', this);
+    console.Log("--- listing selected");
+    console.log(this);
+  },
   'submit .queryForm'(event) {
   	event.preventDefault();
   	console.log("Form submitted");

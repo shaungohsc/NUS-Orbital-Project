@@ -27,3 +27,4 @@ session@1.1.7
 service-configuration
 accounts-password
 rcy:nouislider
+momentjs:moment
