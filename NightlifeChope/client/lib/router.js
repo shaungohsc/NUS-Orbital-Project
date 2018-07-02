@@ -6,21 +6,21 @@ FlowRouter.route('/home', {
 });
 
 FlowRouter.route('/faq', {
-  name: 'home',
+  name: 'faq',
   action() {
     BlazeLayout.render('faqTemplate', {main: 'faqTemplate'});
   }
 });
 
 FlowRouter.route('/admin', {
-  name: 'home',
+  name: 'admin',
   action() {
     BlazeLayout.render('adminTemplate', {main: 'adminTemplate'});
   }
 });
 
 FlowRouter.route('/contact', {
-  name: 'home',
+  name: 'contact',
   action() {
     BlazeLayout.render('contactTemplate', {main: 'contactTemplate'});
   }
@@ -36,6 +36,6 @@ FlowRouter.route('/example', {
 FlowRouter.route('/bookingconfirmation', {
   name: 'bookingconfirmation',
   action() {
-    BlazeLayout.render('confirmationTemplate');
+    BlazeLayout.render('confirmationTemplate', {main: 'confirmationTemplate'});
   }
 });
