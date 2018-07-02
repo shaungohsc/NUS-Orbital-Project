@@ -33,7 +33,7 @@ Template.adminTemplate.events({
       pax: parseInt(target.pax.value),
       description: target.description.value,
       type: target.venuetype.value,
-      price: price,
+      price: parseInt(price),
       date: date,
       createdBy: Meteor.userId(),
       createdAt: new Date()

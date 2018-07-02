@@ -87,6 +87,9 @@ Template.listingsDisplay.events({
     }
     console.log(this);
   },
+  'click .expand'() {
+    Session.set('selectedListing', this);
+  },
   'submit .editform'(event) {
     event.preventDefault();
 

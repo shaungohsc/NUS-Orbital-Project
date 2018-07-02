@@ -80,7 +80,7 @@ Template.homeTemplate.events({
     var queryNumPax = parseInt(target.pax.value);
     var queryBars = target.barsBool.checked;
     var queryClubs = target.clubsBool.checked;
-    var queryPrice = target.price.value;
+    var queryPrice = parseInt(target.price.value);
     var createdBy = Meteor.user().username;
 
     console.log(queryDate + " " + queryNumPax + " "
