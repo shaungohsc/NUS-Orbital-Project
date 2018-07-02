@@ -5,15 +5,6 @@ FlowRouter.route('/home', {
   }
 });
 
-/*FlowRouter.route('/listings', {
-  name: 'listings',
-  action() {
-    BlazeLayout.render('listingsTemplate');
-  }
-});
-*/
-
-
 FlowRouter.route('/faq', {
   name: 'home',
   action() {
@@ -39,5 +30,19 @@ FlowRouter.route('/example', {
   name: 'materilize demo',
   action() {
     BlazeLayout.render('example', {main: 'example'});
+  }
+});
+
+FlowRouter.route('/bookings', {
+  name: 'bookings',
+  action() {
+    BlazeLayout.render('bookingsTemplate');
+  }
+});
+
+FlowRouter.route('/bookingconfirmation', {
+  name: 'bookingconfirmation',
+  action() {
+    BlazeLayout.render('confirmationTemplate');
   }
 });
