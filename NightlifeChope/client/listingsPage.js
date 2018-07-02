@@ -18,9 +18,11 @@ Template.listingsDisplay.helpers({
     return Listings.find({
       pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
       type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
-    }, { sort : { pax : 1 }}
+      price: { $lte : Session.get("queryPrice")},
+      },
+      { sort : { pax : 1 }}
     );
-  }, 
+  },
   // db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } ) -- sample
   currentListing() {
     console.log("Current listing:");
@@ -134,4 +136,3 @@ Template.home.events({
     console.log(this);
   }
 });
-
