@@ -28,39 +28,86 @@
 
 	For users, by pooling last-minute deals from venues around Singapore, a VIP nightlife experience can become more affordable, with greater choice and a streamlined booking process.
 
-## Core Features
+## Current Features
+
+### Single-Page Web Application
+
+	Minimal reloading of page details
+	Responsive design
+
+### Navigation Bar
+
+	Navigation bar with links to: Home, Contact Us, Admin Panel, FAQ and basic login/signup functionality
 
 ### Home Page with Search
-	Quick Description in Using the App
-	Navigation buttons on top, with links to: Home, Contact Us, Admin Panel
-	Search that allows users to select from a drop down menus to filter by: date, no. of pax, venue type
+	Ability to search through listings via:
+	Date
+	Number of Pax
+	Listing type (bar or club)
+	Maximum price
 
-### Listings Page
-	Displays all nightlife listings with 
+	Displays filtered nightlife listings with
+	Date
 	Title
-	Description
-	Image (event poster/venue logo) 
-	Other relevant details such as price, date and time of door opening, in selected order (e.g. by price, venue type) 
+	Price
+	Pax
 
-These details will be filled in by the venue manager in the Admin Page
+	These details will be filled in by the venue manager in the Admin Page
 
-### Selection Page of table/sofa booking with drop-down menu
-	Drop-down menu for: number of pax, pricing-options (if any)
+### Booking Page
+	Allow users to fill in their
+	name
+	email
+	mobile number
+	number of guests arriving
 
 ### Booking Confirmation Page
-	Page that displays the confirmed venue, date, time, price of booking and number of pax
+	Page that confirms the confirmed venue, date, doors-opening time, name, email and mobile number of customers; price of booking and number of guests.
 
-### Admin Page Add/Update/Delete Deals with prices 
-	Connects to the database, allows users (venue owner) to create and change deals. The page  must have the ability to
-	Create entries with:
+### Admin Page Add/Update/Delete Listings
+	Allows users (venue-owners) to create and change deals. The page has the ability to create entries with:
+
 	Title
 	Image
 	Description
+	Date
+	Start Time
+	End Time
 	Price
-	Expiry
 	Number of Pax	
 	
 	View all Submitted Entries
 	Edit Entries
 	Delete Entries
 
+## Features to-be-implemented
+
+### Home Page with Search
+	Ability to search through listings via:
+
+
+	Displays filtered nightlife listings with
+	Description
+	Images or Posters
+
+### Booking Page
+	Allow users to fill-in/choose their
+	table/sofa Options
+
+	Additional bottle-service options
+
+	Price-tracker
+	
+### *New* Payment Page
+	Payment Options
+
+### Booking Confirmation Page
+	auto-generate booking number
+
+### Admin Page Add/Update/Delete Listings 
+	Ability to create listings with:
+	Uploaded images of event posters
+
+	Ability to create bottle-service add-ons
+	
+	Manage and view bookings by date
