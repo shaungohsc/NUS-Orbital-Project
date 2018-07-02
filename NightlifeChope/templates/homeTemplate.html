@@ -3,7 +3,7 @@
   <h1> Welcome to NightlifeChope </h1>
   <div class="deep-purple teal-text">
 
-    <div class="row">
+    <div class="row ">
       <form class="queryForm">
       <div class = "input-field col s2">
         <input type="text" name="date" class="white-text datepicker">
@@ -40,16 +40,60 @@
         </p>
     </div>
 
-    
+    <div class="col s2 valign-wrapper">
+      <label> Maximum Price </label>
+      <p class="range-field">
+        <input type="range" name="price" min="200" max="2000">
+        <output for="price" onforminput="value = price.valueAsNumber;"></output>
+      </p>
+      <script>
+        // DOM Ready
+        $(function() {
+        var el, newPoint, newPlace, offset;
+        // Select all range inputs, watch for change
+        $("input[type='range']").change(function() {
+         // Cache this for efficiency
+         el = $(this);
+         // Measure width of range input
+         width = el.width();
+         // Figure out placement percentage between left and right of input
+         newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
+         // Janky value to get pointer to line up better
+         offset = -1.3;
+         // Prevent bubble from going beyond left or right (unsupported browsers)
+         if (newPoint < 0) { newPlace = 0; }
+         else if (newPoint > 1) { newPlace = width; }
+         else { newPlace = width * newPoint + offset; offset -= newPoint; }
+         // Move bubble
+         el
+           .next("output")
+           .css({
+             left: newPlace,
+             marginLeft: offset + "%"
+           })
+           .text(el.val());
+        })
+        // Fake a change to position bubble at page load
+        .trigger('change');
+        });
+      </script>
+
+    </div>
 
     <div class="col s2 valign-wrapper">
       <input class="white black-text btn waves-effect" type="submit" value="Search">
     </div>
+
     </form>
-    </div>
+  </div>
   </div>
 
-<div id="priceSlider"></div>
+  <!-- Import noUiSlider (doesn't work)
+  <div id="priceSlider"></div>
+  <link type="text/css" rel="stylesheet" href="../node_modules/materializecss/extras/nouislider/nouislider.css"/>
+  <script type="text/javascript" src="../node_modules/materializecss/extras/nouislider/nouislider.js">
+  </script>
+  -->
 
   {{#if searched}}
   {{ > listingsDisplay adminView=false}}
@@ -71,7 +115,7 @@
     //     }
     //   });
     //   console.log("slider done");
-    });     
+    });
   </script>
 
 </template>
