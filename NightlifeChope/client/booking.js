@@ -38,7 +38,9 @@ Template.bookingTemplate.events({
       bookingUser: Meteor.userId(),
       createdAt: new Date(),
     }
+    console.log("New booking:");
     console.log(newBooking);
+    console.log("\n");
 
     // Listings.insert({
     //   bookingName: target.name.value,
@@ -48,10 +50,13 @@ Template.bookingTemplate.events({
     //   bookingUser: Meteor.userId(),
     //   createdAt: new Date(),
     // });
-
+    console.log("For the listing:");
+    console.log(Listings.find({_id : Session.get('selectedListing')._id}));
     Listings.update(Session.get('selectedListing')._id, {
       $set: { booking: newBooking
             },
     });
+    console.log("After update:");
+    console.log(Listings.find({_id : Session.get('selectedListing')._id}));
 	}
 });
