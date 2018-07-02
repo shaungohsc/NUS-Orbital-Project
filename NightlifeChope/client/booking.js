@@ -56,13 +56,11 @@ Template.bookingTemplate.events({
       $set: { booking: newBooking
             },
     });
-<<<<<<< HEAD
 
     // history.replaceState(null, null, '/bookingconfirmation');
     BlazeLayout.render('confirmationTemplate', {main: 'confirmationTemplate'});
-=======
+
     console.log("After update:");
     console.log(Listings.find({_id : Session.get('selectedListing')._id}));
->>>>>>> 16923c7e07619ab2bac554853e39cb9dfc3e8b53
 	}
 });
