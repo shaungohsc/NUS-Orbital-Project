@@ -13,6 +13,26 @@
       </div>
     </div>
 
+    <div class="row" style="font-size: large">
+      <div class="col s2">
+      </div>
+      <div class="col s8">
+        {{#with currentListing}}
+          <strong>{{name}}</strong>
+
+          {{#if checkEq type "bar"}}
+            <i class="tiny material-icons">local_bar</i>
+          {{else if checkEq type "club"}}
+            <i class="tiny material-icons">stars</i>
+          {{/if}}
+          for {{pax}} - <em>${{price}}</em> - {{date}}
+          <br><span style="white-space: pre-line">{{description}}</span>
+        {{/with}}
+      </div>
+      <div class="col s2">
+      </div>
+    </div>
+
     <div class="divider"></div> <br>
     <div class="row">
       <div class="input-field col s6">
@@ -52,9 +72,9 @@
     <div class="divider"></div> <br>
     <div class="row">
       <div class="col s2 valign-wrapper">
-        <button href="/bookingconfirmation" type="submit" class="white black-text btn waves-effect">
+        <a href="/bookingconfirmation"><button type="submit" class="white black-text btn waves-effect">
           Confirm
-        </button>
+        </button></a>
       </div>
     </div>
   </form>

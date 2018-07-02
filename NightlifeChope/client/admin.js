@@ -34,7 +34,7 @@ Template.adminTemplate.events({
       description: target.description.value,
       type: target.venuetype.value,
       price: parseInt(price),
-      date: date,
+      date: new Date(date),
       createdBy: Meteor.userId(),
       createdAt: new Date()
     });

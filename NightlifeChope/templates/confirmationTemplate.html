@@ -1,5 +1,5 @@
 <template name="confirmationTemplate">
-
+  {{#with currentListing}}
   <div class="row teal white-text">
     <div class="col s1">
       <h1> <i class="material-icons md-48">done_outline</i> </h1>
@@ -25,7 +25,7 @@
   <div class="divider"></div> <br>
   <div class="row">
     <div class="col s4">
-      <strong> Date </strong>
+      <strong> Date </strong> {{date}}
     </div>
 
     <div class="col s4">
@@ -36,29 +36,29 @@
   <div class="divider"></div> <br>
   <div class="row">
     <div class="col s4">
-      <strong> Name </strong>
+      <strong> Name </strong> {{booking.bookingName}}
     </div>
 
     <div class="col s4">
-      <strong> Email </strong>
+      <strong> Email </strong> {{booking.bookingEmail}}
     </div>
   </div>
 
   <div class="row">
     <div class="col s4">
-      <strong> Mobile Number </strong>
+      <strong> Mobile Number </strong> {{booking.bookingMobile}}
     </div>
   </div>
 
   <div class="divider"></div> <br>
   <div class="row">
     <div class="col s4">
-      <strong> Number of Guests </strong>
+      <strong> Number of Guests </strong> {{booking.bookingPax}}
     </div>
 
     <div class="col s4">
-      <strong> Total </strong>
+      <strong> Total </strong> {{price}}
     </div>
   </div>
-
+{{/with}}
 </template>

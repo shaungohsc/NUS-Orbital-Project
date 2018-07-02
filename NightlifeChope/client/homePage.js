@@ -18,13 +18,12 @@ Template.homeTemplate.onRendered(function() {
      connect: true,
      start: [300, 1500],
      range: {
-       'min': 200,
+       'min': 01,
        'max': 2000
      },
-     step: 50,
+     step: 1,
      snap: true,
      margin: 500,
-     limit: 1800,
      // Display colored bars between handles
      connect: true,
      direction: 'ltr',
@@ -76,7 +75,7 @@ Template.homeTemplate.events({
     console.log(event);
 
     var target = event.target;
-    var queryDate = target.date.value;
+    var queryDate = new Date(target.date.value);
     var queryNumPax = parseInt(target.pax.value);
     var queryBars = target.barsBool.checked;
     var queryClubs = target.clubsBool.checked;

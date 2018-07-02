@@ -1,9 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Listings } from '../imports/api/listings.js';
 
+// Template.bookingTemplate.onCreated(function bookingTemplateOnCreated() {
+//   Meteor.subscribe('listings');
+// });
 
 Template.bookingTemplate.helpers({
-
+   currentListing() {
+    console.log("Current listing:");
+    console.log(Session.get('selectedListing'));
+    return Session.get('selectedListing');
+  },
 });
 
 Template.bookingTemplate.events({
@@ -22,13 +30,28 @@ Template.bookingTemplate.events({
     console.log(bookingName + " " + bookingEmail + " "
         + bookingMobile + " " + bookingPax + " " + bookingUser);
 
-    Listings.insert({
+    var newBooking = {
       bookingName: target.name.value,
       bookingEmail: target.email.value,
       bookingMobile: parseInt(target.mobile.value),
       bookingPax: parseInt(target.pax.value),
       bookingUser: Meteor.userId(),
       createdAt: new Date(),
+    }
+    console.log(newBooking);
+
+    // Listings.insert({
+    //   bookingName: target.name.value,
+    //   bookingEmail: target.email.value,
+    //   bookingMobile: parseInt(target.mobile.value),
+    //   bookingPax: parseInt(target.pax.value),
+    //   bookingUser: Meteor.userId(),
+    //   createdAt: new Date(),
+    // });
+
+    Listings.update(Session.get('selectedListing')._id, {
+      $set: { booking: newBooking
+            },
     });
 	}
 });

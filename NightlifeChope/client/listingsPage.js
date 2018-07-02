@@ -6,6 +6,18 @@ import { Listings } from '../imports/api/listings.js';
 import '../templates/listingsTemplate.html';
 import '../templates/adminTemplate.html';
 
+Template.bookListing.events({
+  'click book'(){
+    Session.set('selectedListing', this);
+  }
+})
+
+Template.registerHelper('currentListing', function(){
+    console.log("Current listing:");
+    console.log(Session.get('selectedListing'));
+    return Session.get('selectedListing');
+  });
+
 Template.listingsDisplay.onCreated(function listingsDisplayOnCreated() {
   Meteor.subscribe('listings');
 });
@@ -19,6 +31,7 @@ Template.listingsDisplay.helpers({
       pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
       type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
       price: { $lte : Session.get("queryPrice")},
+      date: Session.get("queryDate"),
       },
       { sort : { pax : 1 }}
     );
@@ -48,7 +61,6 @@ Template.listingsDisplay.helpers({
 //     { name: "bar", pet: "cat" }
 //   ]
 // });
-
 
 
 
@@ -105,26 +117,7 @@ Template.listingsDisplay.events({
     });
   },
 });
-/*
-  'submit .adminform'(event) {
-    event.preventDefault();
-    console.log("Form submitted");
-    console.log(event);
-    var listingName = event.target.name.value;
-    var listingDesc = event.target.description.value;
-    var createdBy = Meteor.user().username;
 
-    console.log(listingName + " " + listingDesc + " " + createdBy);
-    Listings.insert({
-      name: event.target.name.value,
-      pax: event.target.pax.value,
-      description: event.target.description.value,
-      createdBy: Meteor.userId(),
-      createdAt: new Date()
-    });
-  }
-});
-*/
 Template.home.events({
   'click li'() {
     console.log(this._id);

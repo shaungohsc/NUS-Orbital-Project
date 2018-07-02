@@ -1,4 +1,5 @@
 <template name="listingsDisplay">
+
 	<ul class="collection container">
     
     {{#if adminView}} 
@@ -44,7 +45,7 @@
     {{else if checkEq type "club"}}
     <i class="tiny material-icons">stars</i>
     {{/if}}
-    for {{pax}} - <em>${{price}}</em>
+    for {{pax}} - <em>${{price}}</em> - {{date}}
     {{#if ../adminView}}
 		  <a href="#!" class="delete material-icons secondary-content">delete</a>
 		  <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
@@ -119,6 +120,6 @@
 <br>
 <p>{{description}}</p>
 
-
+  <a href="/booking"><button class="btn waves-effect waves-light modal-close" type="submit" name="book">Make Booking <i class="material-icons right">send</i></button></a>
 
 </template>
