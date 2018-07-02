@@ -53,5 +53,8 @@ Template.bookingTemplate.events({
       $set: { booking: newBooking
             },
     });
+
+    // history.replaceState(null, null, '/bookingconfirmation');
+    BlazeLayout.render('confirmationTemplate', {main: 'confirmationTemplate'});
 	}
 });

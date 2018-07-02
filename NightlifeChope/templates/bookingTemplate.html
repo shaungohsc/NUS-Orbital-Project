@@ -17,7 +17,7 @@
       <div class="col s2">
       </div>
       <div class="col s8">
-        {{#with currentListing}}
+        {{#with bookListing}}
           <strong>{{name}}</strong>
 
           {{#if checkEq type "bar"}}
@@ -72,9 +72,9 @@
     <div class="divider"></div> <br>
     <div class="row">
       <div class="col s2 valign-wrapper">
-        <a href="/bookingconfirmation"><button type="submit" class="white black-text btn waves-effect">
+        <button type="submit" class="white black-text btn waves-effect">
           Confirm
-        </button></a>
+        </button>
       </div>
     </div>
   </form>
@@ -84,5 +84,6 @@
       M.AutoInit();
     });
   </script>
+
 
 </template>
