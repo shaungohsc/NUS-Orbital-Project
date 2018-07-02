@@ -1,0 +1,68 @@
+<template name="bookingTemplate">
+
+  <h2 class="deep-purple-text"> Reservation Checkout</h2>
+  <div class="divider"></div> <br>
+  <form class="bookingForm">
+    <div class="row">
+      <div class="col s6">
+        <strong> Date </strong>
+      </div>
+
+      <div class="col s6">
+        <strong> Doors Open </strong>
+      </div>
+    </div>
+
+    <div class="divider"></div> <br>
+    <div class="row">
+      <div class="input-field col s6">
+         <input type="text" name="name" value="{{name}}" required>
+         <label class="{{#if name}}active{{/if}}" for="name"> Name </label>
+      </div>
+
+      <div class="input-field col s6">
+        <input type="text" name="email" value="{{email}}" required>
+        <label class="{{#if email}}active{{/if}}" for="email">Email</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input type="text" name="mobile" value="{{mobile}}" required>
+        <label class="{{#if mobile}}active{{/if}}" for="mobile">Mobile Number</label>
+      </div>
+    </div>
+
+    <div class="divider"></div> <br>
+    <div class="row">
+      <div class="input-field col s6">
+        <strong> Number of Guests </strong>
+        <select name="pax">
+          <option white-text value=2>2 Guest</option>
+          <option value=3>3 Guests</option>
+          <option value=4>4 Guests</option>
+          <option value=5>5 Guests</option>
+          <option value=6>6 Guests</option>
+          <option value=7>7 Guests</option>
+          <option value=8>8 Guests</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="divider"></div> <br>
+    <div class="row">
+      <div class="col s2 valign-wrapper">
+        <button href="/bookingconfirmation" type="submit" class="white black-text btn waves-effect">
+          Confirm
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      M.AutoInit();
+    });
+  </script>
+
+</template>

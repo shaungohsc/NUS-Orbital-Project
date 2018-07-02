@@ -33,6 +33,13 @@ FlowRouter.route('/example', {
   }
 });
 
+FlowRouter.route('/booking', {
+  name: 'booking',
+  action() {
+    BlazeLayout.render('bookingTemplate', {main: 'bookingTemplate'});
+  }
+});
+
 FlowRouter.route('/bookingconfirmation', {
   name: 'bookingconfirmation',
   action() {
