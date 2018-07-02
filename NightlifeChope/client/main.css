@@ -18,6 +18,13 @@ body h1 {
   display: inline-block;
 }
 
+body h2 {
+  font-size: 1.5em;
+  font-style: normal;
+  color: white;
+  display: inline-block;
+}
+
 #site-logo {
   font-size: 4em;
   font-style: normal;
@@ -83,3 +90,5 @@ output:after {
   margin-left: -5px;
   margin-top: -1px;
 }
+
+.material-icons.md-48 { font-size: 48px; }
