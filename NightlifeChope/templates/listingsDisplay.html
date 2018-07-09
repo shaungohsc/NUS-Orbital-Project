@@ -35,6 +35,16 @@
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
     </div>
   </div>  
+
+  <script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('select').formSelect();
+          $('.datepicker').datepicker();
+          $('.timepicker').timepicker();
+      });
+  </script>
+
 </template>
 
 
@@ -63,6 +73,32 @@
   		});
 	</script>
 
+<template name="singleListing">
+  <li class="collection-item" style="padding: 5px 25px;"> <em>${{price}}</em> - {{formatDate date}}
+  <a href="#!" class="delete material-icons secondary-content">delete</a>
+  <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+  <br><span style="white-space: pre-line">{{description}}</span></li>
+</template>
+
+<template name="singleTable">
+  <li class="collection-item"> <strong>{{name}}</strong>
+    {{#if checkEq type "bar"}}
+    <i class="tiny material-icons">local_bar</i>
+    {{else if checkEq type "club"}}
+    <i class="tiny material-icons">stars</i>
+    {{/if}}
+    for {{pax}} - <em>${{price}}</em>
+    
+    <a href="#!" class="delete material-icons secondary-content">delete</a>
+    <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+
+    <br><span style="white-space: pre-line">{{description}}</span></li>
+
+    <ul>
+      {{#each listingsByTable tableID}}
+        {{> singleListing}}
+      {{/each}}
+    </ul>
 </template>
 
 <template name="modifyListing">
