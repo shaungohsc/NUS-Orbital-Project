@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Listings } from '../imports/api/listings.js';
+import { Tables } from '../imports/api/listings.js';
 //import { Listings } from '../server/main.js';
 
 import '../templates/listingsTemplate.html';
@@ -26,6 +27,7 @@ Template.registerHelper('formatDate', function(datetime) {
 
 Template.listingsDisplay.onCreated(function listingsDisplayOnCreated() {
   Meteor.subscribe('listings');
+  Meteor.subscribe('tables');
 });
 
 Template.listingsDisplay.helpers({
@@ -72,33 +74,23 @@ Template.listingsDisplay.helpers({
     console.log(Session.get('selectedListing'));
     return Session.get('selectedListing');
   },
+  tables() {
+    return Tables.find();
+  },
+  listingsByTable(table) {
+    console.log("Searching for listings with ID " + table);
+    return Listings.find({tableID: table});
+  },
   items: [
     { name: "foo", pet: "dog" },
     { name: "bar", pet: "cat" }
   ]
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 3653d63... Revert "Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201"
 Template.singleTable.helpers({
   listingsByTable(table) {
     console.log("Searching for listings with ID " + table);
     return Listings.find({tableID: table});
-<<<<<<< HEAD
-  }
-})
-
->>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
-=======
->>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
-=======
->>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
-=======
   } 
 })
 
@@ -116,7 +108,6 @@ Template.resultsDisplay.helpers({
     return results;
   },
 })
->>>>>>> parent of 3653d63... Revert "Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201"
 // Template.adminTemplate.helpers({
 //   listings() {
 //     return Listings.find();
@@ -134,7 +125,7 @@ Template.resultsDisplay.helpers({
 
 Template.listingsDisplay.events({
   'click li'() {
-  	console.log(this._id);
+    console.log(this._id);
   },
   'click .delete'() {
     if(confirm('Delete listing?')){
@@ -182,4 +173,3 @@ Template.listingsDisplay.events({
     });
   },
 });
-
