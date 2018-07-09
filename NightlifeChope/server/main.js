@@ -7,8 +7,8 @@ Meteor.startup(() => {
 
 });
 
-Meteor.publish("listingsDisplay", function() {
-  // var currentUserId = this.userId;
-  // return Listings.find({ createdBy: currentUserId });
-  return Listings.find();
-});
+// Meteor.publish("listingsDisplay", function() {
+//   // var currentUserId = this.userId;
+//   // return Listings.find({ createdBy: currentUserId });
+//   return Listings.find();
+// });
