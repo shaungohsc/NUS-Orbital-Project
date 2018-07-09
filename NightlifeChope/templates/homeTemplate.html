@@ -96,8 +96,9 @@
   -->
 
   {{#if searched}}
-    {{>resultsDisplay}}
+  {{ > listingsDisplay adminView=false}}
   {{/if}}
+
 
   <script>
     $(document).ready(function() {

@@ -33,7 +33,7 @@ Template.listingsDisplay.helpers({
     return Listings.find();
   },
   listingsFiltered() {
-    var results = Listings.find({
+    return Listings.find({
       pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
       type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
       price: { $lte : Session.get("queryPrice")},
@@ -41,31 +41,7 @@ Template.listingsDisplay.helpers({
       },
       { sort : { pax : 1 }}
     );
-    console.log(results.count() + " results found");
-    return results;
   },
-
-  // listingsFiltered() {
-  //   // var tables =  Tistings.find({
-  //   //   pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
-  //   //   type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
-  //   //   price: { $lte : Session.get("queryPrice")},
-  //   //   date: Session.get("queryDate"),
-  //   //   },
-  //   //   { sort : { pax : 1 }}
-  //   // );
-
-  //   return Listings.find({
-  //     pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
-  //     type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
-  //     price: { $lte : Session.get("queryPrice")},
-  //     date: Session.get("queryDate"),
-  //     },
-  //     { sort : { pax : 1 }}
-  //   );
-  // },
-
-
   // db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } ) -- sample
   currentListing() {
     console.log("Current listing:");
@@ -78,27 +54,6 @@ Template.listingsDisplay.helpers({
   ]
 });
 
-Template.singleTable.helpers({
-  listingsByTable(table) {
-    console.log("Searching for listings with ID " + table);
-    return Listings.find({tableID: table});
-  } 
-})
-
-Template.resultsDisplay.helpers({
-  listingsFiltered() {
-    var results = Listings.find({
-      pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
-      type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
-      price: { $lte : Session.get("queryPrice")},
-      date: Session.get("queryDate"),
-      },
-      { sort : { pax : 1 }}
-    );
-    console.log(results.count() + " results found");
-    return results;
-  },
-})
 // Template.adminTemplate.helpers({
 //   listings() {
 //     return Listings.find();
