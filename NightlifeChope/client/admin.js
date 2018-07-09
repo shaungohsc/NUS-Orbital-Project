@@ -31,6 +31,7 @@ Template.adminTemplate.events({
     console.log(date);
     Listings.insert({
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     var tableID = target.tableID.value;
 
@@ -70,6 +71,8 @@ Template.adminTemplate.events({
     console.log(tableName + " " + tableDesc + " " + createdBy + " | " + target.venueType.value);
     Tables.insert({
 >>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
+=======
+>>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
 =======
 >>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
       name: target.name.value,
