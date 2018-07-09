@@ -33,7 +33,7 @@ Template.listingsDisplay.helpers({
     return Listings.find();
   },
   listingsFiltered() {
-    return Listings.find({
+    var results = Listings.find({
       pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
       type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
       price: { $lte : Session.get("queryPrice")},
@@ -41,7 +41,31 @@ Template.listingsDisplay.helpers({
       },
       { sort : { pax : 1 }}
     );
+    console.log(results.count() + " results found");
+    return results;
   },
+
+  // listingsFiltered() {
+  //   // var tables =  Tistings.find({
+  //   //   pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
+  //   //   type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
+  //   //   price: { $lte : Session.get("queryPrice")},
+  //   //   date: Session.get("queryDate"),
+  //   //   },
+  //   //   { sort : { pax : 1 }}
+  //   // );
+
+  //   return Listings.find({
+  //     pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
+  //     type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
+  //     price: { $lte : Session.get("queryPrice")},
+  //     date: Session.get("queryDate"),
+  //     },
+  //     { sort : { pax : 1 }}
+  //   );
+  // },
+
+
   // db.inventory.find( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } ) -- sample
   currentListing() {
     console.log("Current listing:");
@@ -57,11 +81,15 @@ Template.listingsDisplay.helpers({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 3653d63... Revert "Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201"
 Template.singleTable.helpers({
   listingsByTable(table) {
     console.log("Searching for listings with ID " + table);
     return Listings.find({tableID: table});
+<<<<<<< HEAD
   }
 })
 
@@ -70,6 +98,25 @@ Template.singleTable.helpers({
 >>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
 =======
 >>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
+=======
+  } 
+})
+
+Template.resultsDisplay.helpers({
+  listingsFiltered() {
+    var results = Listings.find({
+      pax: { $gte : Session.get("queryNumPax")}, //search for >= num pax in ascending order
+      type: { $in : Session.get("queryType")}, //queryType is an array e.g. ["bar","club"]
+      price: { $lte : Session.get("queryPrice")},
+      date: Session.get("queryDate"),
+      },
+      { sort : { pax : 1 }}
+    );
+    console.log(results.count() + " results found");
+    return results;
+  },
+})
+>>>>>>> parent of 3653d63... Revert "Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201"
 // Template.adminTemplate.helpers({
 //   listings() {
 //     return Listings.find();
