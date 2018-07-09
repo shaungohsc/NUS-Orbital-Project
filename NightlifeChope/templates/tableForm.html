@@ -38,7 +38,7 @@
 	       <label for="venueType">Venue Type</label>
 	      </div>
 
-	      <div class="input-field col s3">
+	     <div class="input-field col s3">
 	       <input type="number" name="price" min="1" value="{{price}}"/>
 	       <label class="{{#if price}}active{{/if}}" for="price">Price</label>
 	      </div>
@@ -51,12 +51,12 @@
 	    </div>
 	    </div>
 
-			<div class="row">
-				<div class="input-field col s12">
-	 	      <textarea id="tableID" class="materialize-textarea" value="{{tableID}}"></textarea>
-	 	      <label class="{{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
- 	    	</div>
-			</div>
+		<div class="row">
+			<div class="input-field col s12">
+ 	      <textarea id="tableID" class="materialize-textarea" value="{{tableID}}"></textarea>
+ 	      <label class="{{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
+	    	</div>
+		</div>
 
 	    {{#if name}}
 	    	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="submitEdit">Submit <i class="material-icons right">send</i> </button>
