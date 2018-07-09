@@ -4,14 +4,13 @@ import './html/navbar.html'
 import './html/main.html'
 
 import { Listings } from '../imports/api/listings.js';
-import { Tables } from '../imports/api/listings.js';
 //import { Listings } from '../server/main.js';
 
 Template.adminTemplate.helpers({
 });
 
 Template.adminTemplate.events({
-  'submit .listingForm'(event) {
+  'submit .adminform'(event) {
   	event.preventDefault();
 
     //Call Meteor method
@@ -26,60 +25,29 @@ Template.adminTemplate.events({
     var createdBy = Meteor.user().username;
     var date = target.listingDate.value;
     // var date = ()  
-    var tableID = target.tableID.value;
 
-    console.log(listingName + " " + listingDesc + " " + createdBy + " | T." + tableID);
+    console.log(listingName + " " + listingDesc + " " + createdBy + " | " + target.venuetype.value);
     console.log(date);
     Listings.insert({
       name: target.name.value,
+      pax: parseInt(target.pax.value),
       description: target.description.value,
+      type: target.venuetype.value,
       price: parseInt(price),
       date: new Date(date),
       createdBy: Meteor.userId(),
-      createdAt: new Date(),
-      tableID: target.tableID.value
+      createdAt: new Date()
     });
 
-    target.name.value = "";
-    target.price.value = "";
-    target.description.value = "";
-    target.listingDate.value = "";
-    target.startTime.value = "";
-    target.endTime.value = "";
-	},
-
-  'submit .tableForm'(event) {
-    event.preventDefault();
-
-    console.log("Table form submitted");
-    console.log(event);
-    var target = event.target;
-    var tableName = target.name.value;
-    var tableDesc = target.description.value;
-    var price = target.price.value;
-    var createdBy = Meteor.user().username;
-    // var date = () 
-    var tableID = target.tableID.value;
-
-    console.log(tableName + " " + tableDesc + " " + createdBy + " | " + target.venueType.value);
-    Tables.insert({
-      name: target.name.value,
-      pax: parseInt(target.pax.value),
-      description: target.description.value,
-      type: target.venueType.value,
-      price: parseInt(price),
-      createdBy: Meteor.userId(),
-      createdAt: new Date(),
-      tableID: target.tableID.value
-    });
-
-    target.name.value = "";
-    target.pax.value = 1;
-    target.venueType.value = 1;
-    target.price.value = "1 ";
-    target.description.value = "";
-    target.tableID = "";
-  }
+    event.target.name.value = "";
+    event.target.pax.value = 1;
+    event.target.venuetype.value = 1;
+    event.target.price.value = "1 ";
+    event.target.description.value = "";
+    event.target.listingDate.value = "";
+    event.target.startTime.value = "";
+    event.target.endTime.value = "";
+	}
 });
 
 

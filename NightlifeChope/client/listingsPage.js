@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Listings } from '../imports/api/listings.js';
-import { Tables } from '../imports/api/listings.js';
 //import { Listings } from '../server/main.js';
 
 import '../templates/listingsTemplate.html';
@@ -27,7 +26,6 @@ Template.registerHelper('formatDate', function(datetime) {
 
 Template.listingsDisplay.onCreated(function listingsDisplayOnCreated() {
   Meteor.subscribe('listings');
-  Meteor.subscribe('tables');
 });
 
 Template.listingsDisplay.helpers({
@@ -50,25 +48,11 @@ Template.listingsDisplay.helpers({
     console.log(Session.get('selectedListing'));
     return Session.get('selectedListing');
   },
-  tables() {
-    return Tables.find();
-  },
-  listingsByTable(table) {
-    console.log("Searching for listings with ID " + table);
-    return Listings.find({tableID: table});
-  },
   items: [
     { name: "foo", pet: "dog" },
     { name: "bar", pet: "cat" }
   ]
 });
-
-Template.singleTable.helpers({
-  listingsByTable(table) {
-    console.log("Searching for listings with ID " + table);
-    return Listings.find({tableID: table});
-  }
-})
 
 // Template.adminTemplate.helpers({
 //   listings() {
