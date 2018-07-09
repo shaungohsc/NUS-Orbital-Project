@@ -28,3 +28,6 @@ service-configuration
 accounts-password
 rcy:nouislider
 momentjs:moment
+meteor-platform
+cfs:filesystem
+cfs:standard-packages
