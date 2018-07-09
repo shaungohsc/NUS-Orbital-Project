@@ -54,6 +54,16 @@ Template.listingsDisplay.helpers({
   ]
 });
 
+<<<<<<< HEAD
+=======
+Template.singleTable.helpers({
+  listingsByTable(table) {
+    console.log("Searching for listings with ID " + table);
+    return Listings.find({tableID: table});
+  }
+})
+
+>>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
 // Template.adminTemplate.helpers({
 //   listings() {
 //     return Listings.find();

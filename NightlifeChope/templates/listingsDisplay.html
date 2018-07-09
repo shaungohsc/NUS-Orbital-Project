@@ -35,6 +35,19 @@
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
     </div>
   </div>  
+<<<<<<< HEAD
+=======
+
+    <script>
+    $(document).ready(function(){
+        $('.modal').modal();
+        $('select').formSelect();
+          $('.datepicker').datepicker();
+          $('.timepicker').timepicker();
+      });
+  </script>
+
+>>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
 </template>
 
 
@@ -53,6 +66,7 @@
       <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
     {{/if}}
 		<br><span style="white-space: pre-line">{{description}}</span></li>
+<<<<<<< HEAD
 
 	<script>
 		$(document).ready(function(){
@@ -62,6 +76,37 @@
       		$('.timepicker').timepicker();
   		});
 	</script>
+=======
+</template>
+-->
+
+<template name="singleListing">
+  <li class="collection-item" style="padding: 5px 25px;"> <em>${{price}}</em> - {{formatDate date}}
+    {{#if ../adminView}}
+      <a href="#!" class="delete material-icons secondary-content">delete</a>
+      <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+    {{else}}
+      <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
+    {{/if}}
+    <br><span style="white-space: pre-line">{{description}}</span></li>
+</template>
+
+<template name="singleTable">
+  <li class="collection-item"> <strong>{{name}}</strong>
+    {{#if checkEq type "bar"}}
+    <i class="tiny material-icons">local_bar</i>
+    {{else if checkEq type "club"}}
+    <i class="tiny material-icons">stars</i>
+    {{/if}}
+    for {{pax}} - <em>${{price}}</em>
+    {{#if ../adminView}}
+      <a href="#!" class="delete material-icons secondary-content">delete</a>
+      <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+    {{else}}
+      <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
+    {{/if}}
+    <br><span style="white-space: pre-line">{{description}}</span></li>
+>>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
 
 </template>
 
@@ -109,6 +154,7 @@
 
 <template name="bookListing">
 
+<<<<<<< HEAD
 <span style="font-size: x-large"> <strong >{{name}}</strong>
 {{#if checkEq type "bar"}}
   <i class="material-icons">local_bar</i>
@@ -121,5 +167,19 @@
 <p>{{description}}</p>
 
   <a href="/booking"><button class="btn waves-effect waves-light modal-close" type="submit" name="book">Make Booking <i class="material-icons right">send</i></button></a>
+=======
+  <span style="font-size: x-large"> <strong >{{name}}</strong>
+  {{#if checkEq type "bar"}}
+    <i class="material-icons">local_bar</i>
+  {{else if checkEq type "club"}}
+    <i class="material-icons">stars</i>
+  {{/if}} 
+  - <em>${{price}}
+  </em></span>
+  <br>
+  <p>{{description}}</p>
+
+    <a href="/booking"><button class="btn waves-effect waves-light modal-close" type="submit" name="book">Make Booking <i class="material-icons right">send</i></button></a>
+>>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
 
 </template>

@@ -25,10 +25,50 @@ Template.adminTemplate.events({
     var createdBy = Meteor.user().username;
     var date = target.listingDate.value;
     // var date = ()  
+<<<<<<< HEAD
 
     console.log(listingName + " " + listingDesc + " " + createdBy + " | " + target.venuetype.value);
     console.log(date);
     Listings.insert({
+=======
+    var tableID = target.tableID.value;
+
+    console.log(listingName + " " + listingDesc + " " + createdBy + " | T." + tableID);
+    console.log(date);
+    Listings.insert({
+      name: target.name.value,
+      description: target.description.value,
+      price: parseInt(price),
+      date: new Date(date),
+      createdBy: Meteor.userId(),
+      createdAt: new Date(),
+      tableID: target.tableID.value
+    });
+
+    target.name.value = "";
+    target.price.value = "";
+    target.description.value = "";
+    target.listingDate.value = "";
+    target.startTime.value = "";
+    target.endTime.value = "";
+	},
+
+  'submit .tableForm'(event) {
+    event.preventDefault();
+
+    console.log("Table form submitted");
+    console.log(event);
+    var target = event.target;
+    var tableName = target.name.value;
+    var tableDesc = target.description.value;
+    var price = target.price.value;
+    var createdBy = Meteor.user().username;
+    // var date = () 
+    var tableID = target.tableID.value;
+
+    console.log(tableName + " " + tableDesc + " " + createdBy + " | " + target.venueType.value);
+    Tables.insert({
+>>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
       name: target.name.value,
       pax: parseInt(target.pax.value),
       description: target.description.value,
