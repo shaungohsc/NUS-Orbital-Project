@@ -55,6 +55,7 @@ Template.listingsDisplay.helpers({
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Template.singleTable.helpers({
   listingsByTable(table) {
@@ -64,6 +65,8 @@ Template.singleTable.helpers({
 })
 
 >>>>>>> parent of 783265b... Separated admin and customer listings view; listings inherit table info
+=======
+>>>>>>> parent of bc2ebee... Merge branch 'master' of https://github.com/shaungohsc/NUS-Orbital-Project-201
 // Template.adminTemplate.helpers({
 //   listings() {
 //     return Listings.find();
