@@ -8,6 +8,12 @@ import { Tables } from '../imports/api/listings.js';
 //import { Listings } from '../server/main.js';
 
 Template.adminTemplate.helpers({
+    UserImages: function() {
+    var username = Meteor.user().username;
+    var userId = Meteor.userId();
+    var URL = UserImages.findOne({username: username}, {userId: userId});
+    return URL;
+  }
 });
 
 Template.adminTemplate.events({
@@ -25,11 +31,11 @@ Template.adminTemplate.events({
     var price = target.price.valueAsNumber;
     var createdBy = Meteor.user().username;
     var date = target.listingDate.value;
-    // var date = ()  
+    // var date = ()
     var tableID = target.tableID.value;
 
     var table = Tables.find({tableID: tableID}).fetch()[0]; //get the associated table
-    
+
     listingName = listingName == "" ? table.name : listingName;
     listingDesc = listingDesc == "" ? table.description : listingDesc;
     console.log(price);
@@ -70,7 +76,7 @@ Template.adminTemplate.events({
     var tableDesc = target.description.value;
     var price = target.price.value;
     var createdBy = Meteor.user().username;
-    // var date = () 
+    // var date = ()
     var tableID = target.tableID.value;
 
     console.log(tableName + " " + tableDesc + " " + createdBy + " | " + target.venueType.value);
@@ -91,7 +97,33 @@ Template.adminTemplate.events({
     target.price.value = "1 ";
     target.description.value = "";
     target.tableID = "";
-  }
+  },
+
+  "onclick #event-img-upload-btn": function(event) {
+		var file = $('#eventImage').get(0).files[0];
+
+		if (file) {
+
+			fsFile = new FS.File(file);
+
+			EventImages.insert(fsFile, function(err, result){
+				if (err) {
+					throw new Meteor.Error(err);
+				} else {
+					var imagePath = '/cfs/files/EventImages/'+result._id;
+
+					UserImages.insert({
+						userId: Meteor.userId(),
+						username: Meteor.user().username,
+						imagePath: imagePath,
+					});
+					console.log("Profile Update Successful!"+result._id);
+				}
+			});
+
+		}
+		return true;
+	}
 });
 
 

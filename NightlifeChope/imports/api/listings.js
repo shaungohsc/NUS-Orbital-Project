@@ -20,4 +20,12 @@ if (Meteor.isServer) {
   Meteor.publish('tables', function tablessPublication() {
     return Tables.find();
   });
+
+  Meteor.publish("EventImages", function(){
+    return EventImages.find();
+  });
+
+  Meteor.publish("UserImages", function(){
+    return UserImages.find();
+  });
 }

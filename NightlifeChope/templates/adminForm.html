@@ -2,8 +2,24 @@
 	<div>
 	  <form class = "listingForm col s12 container">
 	   		<div class="row">
-		  	Listing/Event Image: <input class="white-text" type="file" name="image"
-		    placeholder="Image" /> <br> <br>
+		  	Listing/Event Image:
+
+				{{#with UserImages}}
+				<img src="{{image}}" class="event-img">
+				{{else}}
+				<label for="eventImage">Choose Event Image</label>
+				<span id="filename"></span>
+				<input type="file" name="eventImage" id="eventImage" class="black eventImage">
+				<br>
+
+				<button type="button" value="Upload Photo" id="event-img-upload-btn" class="btn waves-effect waves-light">Upload Photo</button>
+				{{/with}}
+
+	      <div class="input-field col s6">
+				<input type="text" name="imagePath" id="imagePath" value="">
+				<!--<label class="{{#if imagePath}}active{{/if}}" for="imagePath"></label>
+				-->
+				</div>
 			</div>
 
 	    <div class="row">
@@ -58,7 +74,7 @@
 	        	<label for="dealExpiryDate">Deal Expiry Date</label>
 	      	</div>
 		</div>
-			
+
 	    {{#if name}}
 	    	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="submitEdit">Submit <i class="material-icons right">send</i> </button>
   	  		<button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
@@ -71,6 +87,20 @@
 	$(function() {
 		var temp="a";
 		$("#paxabc").val(temp);
+	});
+</script>
+
+<!-- Js for switching file picker span -->
+<script>
+	$(function() {
+		var fileName
+		$("#eventImage:file").change(function () {
+			fileName = $(this).val();
+			$("span").text(fileName);
+			$("label").hide();
+		});
+
+		$("#imagePath").val(fileName);
 	});
 </script>
 
