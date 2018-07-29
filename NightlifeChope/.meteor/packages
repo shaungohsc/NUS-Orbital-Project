@@ -31,3 +31,4 @@ momentjs:moment
 meteor-platform
 cfs:filesystem
 cfs:standard-packages
+cfs:gridfs
