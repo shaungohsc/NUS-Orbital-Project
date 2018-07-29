@@ -75,3 +75,13 @@ Template.bookingTemplate.events({
     console.log("submit .bookingForm done");
 	}
 });
+
+Template.confirmationTemplate.helpers({
+   confirmationCode() {
+    var id = Session.get('selectedListing')._id;
+    console.log(id);
+    var first = id.substr(0,1);
+    var lastFive = id.substr(12,5);
+    return first.concat(lastFive);
+  },
+});
