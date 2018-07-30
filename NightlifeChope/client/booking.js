@@ -32,7 +32,7 @@ Template.bookingTemplate.events({
 
 
     var id = Session.get('selectedListing')._id;
-    
+
     // Gen confirm code from 1st and last5 chars in id
     console.log(id);
     var first = id.substr(0,1);

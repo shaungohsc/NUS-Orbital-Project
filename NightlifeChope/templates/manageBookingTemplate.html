@@ -1,0 +1,84 @@
+<template name="manageBookingTemplate">
+
+  <h1 class="deep-purple-text"> Check your Booking Details here </h1>
+  <br> <div class="divider"></div> <br>
+
+  <div class="row">
+    <form class="manageBookingsForm container">
+      <div class="input-field col">
+        <input type="text" name="confirmationCode" required>
+        <label class="active" for="confirmationCode">Booking Confirmation Code</label>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col s2 valign-wrapper">
+          <a href="#"><button type="submit" class="white black-text btn waves-effect">
+            Check Booking
+          </button> </a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <br> <div class="divider"></div> <br>
+  <div class="row">
+    {{#each bookingsFiltered}}
+      {{ > singleBooking}}
+    {{/each}}
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      M.AutoInit();
+    });
+  </script>
+
+</template>
+
+
+<template name="singleBooking">
+  <div class="container">
+    <h2 class="black-text"> Booking Details </h2>
+    <div class="divider"></div> <br>
+    <div class="row">
+      <div class="col s4">
+        <strong> Date </strong> {{formatDate date}}
+      </div>
+
+      <div class="col s4">
+        <!--<strong> Doors Open </strong>-->
+      </div>
+    </div>
+
+    <div class="divider"></div> <br>
+    <div class="row">
+      <div class="col s4">
+        <strong> Name </strong> {{booking.bookingName}}
+      </div>
+
+      <div class="col s4">
+        <strong> Email </strong> {{booking.bookingEmail}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s4">
+        <strong> Mobile Number </strong> {{booking.bookingMobile}}
+      </div>
+    </div>
+
+    <div class="divider"></div> <br>
+    <div class="row">
+      <div class="col s4">
+        <strong> Number of Guests </strong> {{booking.bookingPax}}
+      </div>
+
+      <div class="col s4">
+        <strong> Total </strong> ${{price}}
+      </div>
+    </div>
+  </div>
+  <br> <div class="divider"></div> <br>
+
+</template>

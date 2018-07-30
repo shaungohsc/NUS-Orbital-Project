@@ -46,3 +46,10 @@ FlowRouter.route('/bookingconfirmation', {
     BlazeLayout.render('confirmationTemplate', {main: 'confirmationTemplate'});
   }
 });
+
+FlowRouter.route('/managebookings', {
+  name: 'managebookings',
+  action() {
+    BlazeLayout.render('manageBookingTemplate', {main: 'manageBookingTemplate'});
+  }
+});
