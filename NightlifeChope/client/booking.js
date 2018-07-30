@@ -33,12 +33,11 @@ Template.bookingTemplate.events({
 
     var id = Session.get('selectedListing')._id;
 
-    /* Gen confirm code from 1st and last5 chars in id
+    // Gen confirm code from 1st and last5 chars in id
     console.log(id);
     var first = id.substr(0,1);
     var lastFive = id.substr(12,5);
     var finalCode = first.concat(lastFive);
-    */
 
     var newBooking = {
       bookingName: target.name.value,
@@ -47,7 +46,7 @@ Template.bookingTemplate.events({
       bookingPax: parseInt(target.pax.value),
       bookingUser: Meteor.userId(),
       createdAt: new Date(),
-      confirmationCode: id,
+      confirmationCode: finalCode,
     }
     console.log("New booking:");
     console.log(newBooking);

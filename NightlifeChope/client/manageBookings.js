@@ -6,7 +6,7 @@ import { Session } from 'meteor/session';
 Template.manageBookingTemplate.helpers({
   bookingsFiltered() {
     var booking = Listings.find({
-      _id: Session.get("confirmationCode"),
+      "booking.confirmationCode": Session.get("confirmationCode"),
     });
 
     console.log("booking found");
