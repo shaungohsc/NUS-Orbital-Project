@@ -31,14 +31,14 @@
 
   <div class="custom-gold white-text">
 
-    <div class="row ">
+    <div class="row">
       <form class="queryForm">
       <div class = "input-field col s2">
         <input type="text" name="date" class="white-text datepicker">
-        <label for="date"> Date </label>
+        <label class="white-text" for="date"> Date </label>
       </div>
 
-      <div class="input-field col s2 valign-wrapper ">
+      <div class="input-field col s2 valign-wrapper">
         <select name="pax">
           <option class="white-text" value=2>2 Guests</option>
           <option value=3>3 Guests</option>
@@ -48,20 +48,20 @@
           <option value=7>7 Guests</option>
           <option value=8>8 Guests</option>
         </select>
-        <label> Number of Guests </label>
+        <label class="white-text"> Number of Guests </label>
       </div>
 
       <div class="col s3 valign-wrapper">
         <p> Search For&nbsp;&nbsp;&nbsp;</p>
         <p>
-          <label>
+          <label class="white-text">
             <input type="checkbox" name="clubsBool" class="filled-in" checked="checked" />
             <span> Clubs</span>
           </label>
         &nbsp;&nbsp;&nbsp;&nbsp;
         </p>
         <p>
-          <label>
+          <label class="white-text">
             <input type="checkbox" name="barsBool" class="filled-in" checked="checked" />
             <span> Bars </span>
           </label>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="col s2 valign-wrapper">
-      <label> Maximum Price </label>
+      <label class="white-text" > Maximum Price </label>
       <p class="range-field">
         <input type="range" name="price" min="200" max="2000">
         <output for="price" onforminput="value = price.valueAsNumber;"></output>

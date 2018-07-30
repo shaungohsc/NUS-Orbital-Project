@@ -12,7 +12,7 @@ header {
 }
 
 body {
-  background-color: #140628;
+  background-color: #000000;
   color: #f1f1db;
 }
 body h1 {
@@ -27,11 +27,11 @@ body h1 {
 }
 
 .custom-dark-purple {
-  background-color: #140628 !important;
+  background-color: #000000 !important;
 }
 
 .custom-dark-purple-l1 {
-  background-color: #1c0d30 !important;
+  background-color: #000000 !important;
 }
 
 .custom-slight-yellow {
