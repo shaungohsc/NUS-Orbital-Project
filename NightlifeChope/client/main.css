@@ -72,6 +72,9 @@ header navbar {
 
 }
 
+.input-field {
+  color: white;
+}  
 /* main part of the webpage, the part that changes */
 #__blaze-root {
   border: 0%;s
