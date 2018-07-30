@@ -6,6 +6,10 @@ import { Session } from 'meteor/session';
 // import noUiSlider from '../imports/noUiSlider.11.1.0/nouislider.js';
 import noUiSlider from '../node_modules/materialize-css/extras/nouislider/nouislider.js';
 
+Template.homeTemplate.onCreated(function homeTemplateOnCreated() {
+  Meteor.subscribe('listings');
+});
+
 Template.homeTemplate.helpers({
   'searched'(){
     return Session.get("searched");

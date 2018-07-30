@@ -83,7 +83,7 @@
 -->
 
 <template name="singleListing">
-  <li class="collection-item" style="padding: 5px 0px;"> 
+  <li class="collection-item custom-dark-purple-l1" style="padding: 5px 0px;"> 
     &nbsp;&nbsp;{{#if checkEq name ../name}}{{else}}<strong>{{name}}</strong> - {{/if}} <!-- if listing name !equals table name, display -->
     <em>${{price}}</em> - {{formatDate date}}
     {{#if checkEq booking null}}{{else}}<span>&nbsp;&nbsp;&nbsp;&nbsp;Booked by {{booking.bookingName}} ({{booking.confirmationCode}})</span>{{/if}}
@@ -97,7 +97,7 @@
 </template>
 
 <template name="singleTable">
-  <li class="collection-item"> <strong>{{name}}</strong>
+  <li class="collection-item custom-dark-purple-l1"> <strong>{{name}}</strong>
     {{#if checkEq type "bar"}}
     <i class="tiny material-icons">local_bar</i>
     {{else if checkEq type "club"}}

@@ -11,11 +11,31 @@ header {
   display: inline-block;
 }
 
+body {
+  background-color: #140628;
+  color: #f1f1db;
+}
 body h1 {
   font-size: 2em;
   font-style: normal;
-  color: deep-purple;
+  color: white;
   display: inline-block;
+}
+
+.custom-gold {
+  background-color: #a98842 !important;
+}
+
+.custom-dark-purple {
+  background-color: #140628 !important;
+}
+
+.custom-dark-purple-l1 {
+  background-color: #1c0d30 !important;
+}
+
+.custom-slight-yellow {
+  color: #f1f1db !important;
 }
 
 body h2 {
@@ -48,6 +68,8 @@ header navbar {
   margin-top: auto;
   margin-bottom: auto;
   display: block;
+  background-color: #a98842;
+
 }
 
 /* main part of the webpage, the part that changes */
