@@ -16,7 +16,7 @@
 
 	    <div class="row">
 	      <div class ="input-field col s3">
-	        <select name="pax" id="{{#if pax}}paxEdit{{/if}}" required>
+	        <select name="pax" id="{{#if pax}}paxEdit{{/if}}">
         	  <option value="" disabled selected>Select an option</option>
 	          <option value=2>2</option>
 	          <option value=3>3</option>
@@ -30,7 +30,7 @@
 	      </div>
 
 	      <div class ="input-field col s3">
-	        <select name="venueType" id="{{#if venueType}}typeEdit{{/if}}" required>
+	        <select name="venueType" id="{{#if venueType}}typeEdit{{/if}}">
 	          <option value="" disabled selected>Select an option</option>
 	          <option value="club">Club</option>
 	          <option value="bar">Bar</option>
@@ -59,10 +59,10 @@
 		</div>
 
 	    {{#if name}}
-	    	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="submitEdit">Submit <i class="material-icons right">send</i> </button>
+	    	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="edit_table_form">Submit <i class="material-icons right">send</i> </button>
   	  		<button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
   	  	{{else}}
-  	  		<button class="btn waves-effect waves-light" type="submit" name="submit">Submit <i class="material-icons right">send</i> </button><br>
+  	  		<button class="btn waves-effect waves-light" type="submit" name="submit" id="create_table_form">Submit <i class="material-icons right">send</i> </button><br>
 	  	{{/if}}
 	  </form>
 	</div>

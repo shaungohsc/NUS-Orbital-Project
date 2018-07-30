@@ -23,7 +23,7 @@ Template.adminTemplate.events({
     //Call Meteor method
     // Meteor.call('listings.insert', event.target);
 
-    console.log("Form submitted");
+    console.log("submit .listingForm");
     console.log(event);
     var target = event.target;
     var listingName = target.name.value;
@@ -31,7 +31,6 @@ Template.adminTemplate.events({
     var price = target.price.valueAsNumber;
     var createdBy = Meteor.user().username;
     var date = target.listingDate.value;
-    // var date = ()
     var tableID = target.tableID.value;
 
     var table = Tables.find({tableID: tableID}).fetch()[0]; //get the associated table
@@ -55,7 +54,8 @@ Template.adminTemplate.events({
       createdAt: new Date(),
       tableID: target.tableID.value,
       type: table.type,
-      pax : table.pax
+      pax: table.pax,
+      booking: null
     });
 
     target.name.value = "";
@@ -69,7 +69,7 @@ Template.adminTemplate.events({
   'submit .tableForm'(event) {
     event.preventDefault();
 
-    console.log("Table form submitted");
+    console.log("submit .tableForm");
     console.log(event);
     var target = event.target;
     var tableName = target.name.value;
@@ -94,9 +94,9 @@ Template.adminTemplate.events({
     target.name.value = "";
     target.pax.value = 1;
     target.venueType.value = 1;
-    target.price.value = "1 ";
+    target.price.value = "";
     target.description.value = "";
-    target.tableID = "";
+    target.tableID.value = "";
   },
 
   "onclick #event-img-upload-btn": function(event) {

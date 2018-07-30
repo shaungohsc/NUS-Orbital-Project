@@ -52,10 +52,6 @@ Template.bookingTemplate.events({
     console.log(newBooking);
     console.log("\n");
 
-    /* Saving the confirmationCode to session
-    Session.set("confirmationCode", finalCode);
-    */
-
     console.log("For the listing:");
     console.log(Session.get('selectedListing'));
     console.log("id: " + Session.get('selectedListing')._id);

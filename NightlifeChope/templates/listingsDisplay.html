@@ -23,7 +23,7 @@
   <div id="table_edit_modal" class="modal">
     <div class="modal-content">
       <h5>Editing Table</h5>
-      {{ > tableForm currentTable}}
+      {{ > edit_table_template currentTable}}
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
@@ -33,7 +33,7 @@
   <div id="listing_edit_modal" class="modal">
     <div class="modal-content">
       <h5>Editing Listing</h5>
-      {{ > adminForm currentListing}}
+      {{ > edit_listing_template currentListing}}
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
@@ -83,10 +83,17 @@
 -->
 
 <template name="singleListing">
-  <li class="collection-item" style="padding: 5px 25px;"> <em>${{price}}</em> - {{formatDate date}}
-  <a href="#!" class="delete_listing material-icons secondary-content">delete</a>
-  <a href="#listing_edit_modal" class="edit_listing material-icons secondary-content modal-trigger">edit</a> 
-  <br><span style="white-space: pre-line">{{description}}</span></li>
+  <li class="collection-item" style="padding: 5px 0px;"> 
+    &nbsp;&nbsp;{{#if checkEq name ../name}}{{else}}<strong>{{name}}</strong> - {{/if}} <!-- if listing name !equals table name, display -->
+    <em>${{price}}</em> - {{formatDate date}}
+    {{#if checkEq booking null}}{{else}}<span>&nbsp;&nbsp;&nbsp;&nbsp;Booked by {{booking.bookingName}} ({{booking.confirmationCode}})</span>{{/if}}
+    <a href="#!" class="delete_listing material-icons secondary-content">delete</a>
+    <a href="#listing_edit_modal" class="edit_listing material-icons secondary-content modal-trigger">edit</a> 
+    <br>
+    {{#if checkEq description ../description}}{{else}}<span style="white-space: pre-line">&nbsp;&nbsp;{{description}}</span>{{/if}}
+   
+    
+  </li>
 </template>
 
 <template name="singleTable">
@@ -96,18 +103,19 @@
     {{else if checkEq type "club"}}
     <i class="tiny material-icons">stars</i>
     {{/if}}
-    for {{pax}} - <em>${{price}}</em>
+    for {{pax}} - <em>${{price}}</em> - ({{tableID}})
     
     <a href="#!" class="delete_table material-icons secondary-content">delete</a>
     <a href="#table_edit_modal" class="edit_table material-icons secondary-content modal-trigger">edit</a> 
 
-    <br><span style="white-space: pre-line">{{description}}</span></li>
+    <br><span style="white-space: pre-line">{{description}}</span>
 
     <ul>
       {{#each listingsByTable tableID}}
         {{> singleListing}}
       {{/each}}
     </ul>
+    </li>
 </template>
 
 <template name="modifyListing">

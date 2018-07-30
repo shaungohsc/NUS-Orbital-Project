@@ -9,16 +9,6 @@
 
 	</ul>
 
-	<div id="modal1" class="modal">
-    <div class="modal-content">
-      <h5>Editing Listing</h5>
-      {{ > adminForm currentListing}}
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
-    </div>
-  </div>
-
   <div id="bookingModal" class="modal">
     <div class="modal-content">
       <h5>Viewing Listing</h5>
@@ -49,12 +39,8 @@
     <i class="tiny material-icons">stars</i>
     {{/if}}
     for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
-    {<!-- {#if ../adminView}}
-		  <a href="#!" class="delete material-icons secondary-content">delete</a>
-		  <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
-    {{else}} -->
-      <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
-    <!-- {{/if}} -->
+
+    <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
 		<br><span style="white-space: pre-line">{{description}}</span></li>
 </template>
 
@@ -79,10 +65,13 @@
   {{else if checkEq type "club"}}
     <i class="material-icons">stars</i>
   {{/if}} 
+  for {{pax}}
   - <em>${{price}}
-  </em></span>
+  </em>
   <br>
-  <p>{{description}}</p>
+  {{formatDate date}}
+  </span>
+  <p style="font-size: large">{{description}}</p>
 
     <a href="/booking"><button class="btn waves-effect waves-light modal-close" type="submit" name="book">Make Booking <i class="material-icons right">send</i></button></a>
 
