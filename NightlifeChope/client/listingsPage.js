@@ -74,6 +74,11 @@ Template.listingsDisplay.helpers({
     console.log(Session.get('selectedListing'));
     return Session.get('selectedListing');
   },
+  currentTable() {
+    console.log("Current table:");
+    console.log(Session.get('selectedTable'));
+    return Session.get('selectedTable');
+  },
   tables() {
     return Tables.find();
   },
@@ -107,6 +112,17 @@ Template.resultsDisplay.helpers({
     console.log(results.count() + " results found");
     return results;
   },
+  'click .expand'() {
+    Session.set('selectedListing', this);
+    console.log("--- listing selected");
+  },
+})
+
+Template.resultsDisplay.events({
+  'click .expand'() {
+    Session.set('selectedListing', this);
+    console.log("--- listing selected");
+  },
 })
 // Template.adminTemplate.helpers({
 //   listings() {
@@ -127,14 +143,44 @@ Template.listingsDisplay.events({
   'click li'() {
     console.log(this._id);
   },
-  'click .delete'() {
+  'click .delete_listing'() {
     if(confirm('Delete listing?')){
       Listings.remove(this._id);
     }
   },
-  'click .edit'() {
+  'click .edit_listing'() {
     Session.set('selectedListing', this);
     console.log("--- listing selected");
+
+    //To make sure the existing option is selected in the edit menu. Works but visually displays the previously selected listing's option
+    //https://www.daftlogic.com/information-programmatically-preselect-dropdown-using-javascript.htm
+    // var paxOptions = document.getElementById("paxEdit").options;
+    // for ( var i = 0; i < paxOptions.length; i++ ) {
+    //     if ( paxOptions[i].value == this.pax ) {
+    //         paxOptions[i].selected = true;
+    //         return;
+    //     }
+    // }
+    // var typeOptions = document.getElementById("typeEdit").options;
+    // for ( var i = 0; i < typeOptions.length; i++ ) {
+    //     if ( typeOptions[i].value == this.pax ) {
+    //         typeOptions[i].selected = true;
+    //         return;
+    //     }
+    // }
+    console.log(this);
+  },
+  'click .delete_table'() {
+    if(confirm('Delete table and all associated listings?')){
+      var tableID = this.tableID;
+      // Listings.remove({tableID: tableID}); cannot work w untrusted code
+      Meteor.call('removeListingsUnderTable', tableID);
+      Tables.remove(this._id);  
+    }
+  },
+  'click .edit_table'() {
+    Session.set('selectedTable', this);
+    console.log("--- table selected");
 
     //To make sure the existing option is selected in the edit menu. Works but visually displays the previously selected listing's option
     //https://www.daftlogic.com/information-programmatically-preselect-dropdown-using-javascript.htm
@@ -154,11 +200,29 @@ Template.listingsDisplay.events({
     }
     console.log(this);
   },
-  'click .expand'() {
-    Session.set('selectedListing', this);
-    console.log("--- listing selected");
+  // 'click .expand'() {
+  //   Session.set('selectedListing', this);
+  //   console.log("--- listing selected");
+  // },
+  'submit .edit_table_form'(event) {
+    event.preventDefault();
+
+    var target = event.target;
+    var tableName = event.target.name.value;
+    var tableDesc = event.target.description.value;
+    console.log(tableName + " " + tableDesc + " " + event.target.pax.value);
+
+    Tables.update(this._id, {
+      $set: { name: target.name.value,
+              pax: parseInt(target.pax.value),
+              description: target.description.value,
+              type: target.venueType.value,
+              price: parseInt(price),
+              lastModified: new Date(),
+            },
+    });
   },
-  'submit .editform'(event) {
+  'submit .edit_listing_form'(event) {
     event.preventDefault();
 
     var listingName = event.target.name.value;

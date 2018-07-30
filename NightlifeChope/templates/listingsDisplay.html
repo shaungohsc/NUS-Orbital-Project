@@ -1,4 +1,4 @@
-<template name="listingsDisplay">
+<template name="listingsDisplay"> <!-- for admin panel -->
 
   <ul class="collection container">
     
@@ -20,7 +20,17 @@
 
   </ul>
 
-  <div id="modal1" class="modal">
+  <div id="table_edit_modal" class="modal">
+    <div class="modal-content">
+      <h5>Editing Table</h5>
+      {{ > tableForm currentTable}}
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
+    </div>
+  </div>
+
+  <div id="listing_edit_modal" class="modal">
     <div class="modal-content">
       <h5>Editing Listing</h5>
       {{ > adminForm currentListing}}
@@ -30,6 +40,7 @@
     </div>
   </div>
 
+  <!-- should only be relevant in resultsDisplay
   <div id="bookingModal" class="modal">
     <div class="modal-content">
       <h5>Viewing Listing</h5>
@@ -39,6 +50,7 @@
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
     </div>
   </div>  
+-->
 
   <script>
     $(document).ready(function(){
@@ -72,8 +84,8 @@
 
 <template name="singleListing">
   <li class="collection-item" style="padding: 5px 25px;"> <em>${{price}}</em> - {{formatDate date}}
-  <a href="#!" class="delete material-icons secondary-content">delete</a>
-  <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+  <a href="#!" class="delete_listing material-icons secondary-content">delete</a>
+  <a href="#listing_edit_modal" class="edit_listing material-icons secondary-content modal-trigger">edit</a> 
   <br><span style="white-space: pre-line">{{description}}</span></li>
 </template>
 
@@ -86,8 +98,8 @@
     {{/if}}
     for {{pax}} - <em>${{price}}</em>
     
-    <a href="#!" class="delete material-icons secondary-content">delete</a>
-    <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+    <a href="#!" class="delete_table material-icons secondary-content">delete</a>
+    <a href="#table_edit_modal" class="edit_table material-icons secondary-content modal-trigger">edit</a> 
 
     <br><span style="white-space: pre-line">{{description}}</span></li>
 
