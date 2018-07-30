@@ -15,7 +15,7 @@
 				<button type="button" value="Upload Photo" id="event-img-upload-btn" class="btn waves-effect waves-light">Upload Photo</button>
 				{{/with}}
 
-	      <div class="input-field col s6">
+	      <div class="input-field col s6 white-text" style = "color: white;">
 				<input type="text" name="imagePath" id="imagePath" value="">
 				<!--<label class="{{#if imagePath}}active{{/if}}" for="imagePath"></label>
 				-->
@@ -23,12 +23,12 @@
 			</div>
 
 	    <div class="row">
-	      <div class="input-field col s6">
+	      <div class="input-field col s6 white-text" style = "color: white;">
 	    	 <input type="text" name="name" value="{{name}}">
 	       <label class="{{#if name}}active{{/if}}" for="name">Listing Name (blank for default)</label>
 	      </div>
 
-	      <div class="input-field col s3">
+	      <div class="input-field col s3 white-text" style = "color: white;">
 	       <input type="number" name="price" min="1" value="{{price}}"/>
 	       <label class="{{#if price}}active{{/if}}" for="price">Listing Price (blank for default)</label>
 	      </div>
@@ -103,5 +103,10 @@
 		$("#imagePath").val(fileName);
 	});
 </script>
+<style>
+  .input-field {
+    color: white;    
+  }
+</style>
 
 </template>

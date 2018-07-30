@@ -73,8 +73,19 @@ header navbar {
 }
 
 .input-field {
-  color: white;
+  color: white !important;
 }  
+
+/* valid color */
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #ffffff;
+ box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid #ffffff;
+ box-shadow: 0 1px 0 0 #000;
+}
 /* main part of the webpage, the part that changes */
 #__blaze-root {
   border: 0%;s
@@ -84,6 +95,16 @@ header navbar {
   margin-top: 1%;
   margin-bottom: 1%;
   display: block;
+}
+
+.modal {
+  color: #1E180B;
+  background-color: #f1f1db;
+}
+
+.modal .modal-footer {
+  color: #1E180B !important;
+  background-color: #f1f1db;
 }
 
 /* Slider */
