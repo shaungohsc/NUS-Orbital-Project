@@ -38,6 +38,8 @@ body h1 {
   color: #f1f1db !important;
 }
 
+
+
 body h2 {
   font-size: 1.5em;
   font-style: normal;
@@ -74,7 +76,7 @@ header navbar {
 
 .input-field {
   color: white !important;
-}  
+}
 
 /* valid color */
 .input-field input[type=text].valid {
@@ -138,3 +140,7 @@ output:after {
 }
 
 .material-icons.md-48 { font-size: 48px; }
+
+.select-wrapper input.select-dropdown {
+  color: white;
+}

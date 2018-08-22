@@ -16,7 +16,7 @@
 				{{/with}}
 
 	      <div class="input-field col s6 white-text" style = "color: white;">
-				<input type="text" name="imagePath" id="imagePath" value="">
+				<input class="white-text" type="text" name="imagePath" id="imagePath" value="">
 				<!--<label class="{{#if imagePath}}active{{/if}}" for="imagePath"></label>
 				-->
 				</div>
@@ -24,54 +24,54 @@
 
 	    <div class="row">
 	      <div class="input-field col s6 white-text" style = "color: white;">
-	    	 <input type="text" name="name" value="{{name}}">
-	       <label class="{{#if name}}active{{/if}}" for="name">Listing Name (blank for default)</label>
+	    	 <input class="white-text" type="text" name="name" value="{{name}}">
+	       <label class="white-text {{#if name}}active{{/if}} white-text" for="name">Listing Name (blank for default)</label>
 	      </div>
 
 	      <div class="input-field col s3 white-text" style = "color: white;">
-	       <input type="number" name="price" min="1" value="{{price}}"/>
-	       <label class="{{#if price}}active{{/if}}" for="price">Listing Price (blank for default)</label>
+	       <input class="white-text" type="number" name="price" min="1" value="{{price}}"/>
+	       <label class="white-text {{#if price}}active{{/if}}" for="price">Listing Price (blank for default)</label>
 	      </div>
 	    </div>
 
 	    <div class="row">
 	  	 <div class="input-field col s12">
-	      <textarea id="description" class="materialize-textarea" value="{{description}}"></textarea>
-	      <label class="{{#if description}}active{{/if}}" for="description">Listing Description (blank for default)</label>
+	      <textarea id="description" class="white-text materialize-textarea" value="{{description}}"></textarea>
+	      <label class="white-text {{#if description}}active{{/if}}" for="description">Listing Description (blank for default)</label>
 	    </div>
 	    </div>
 
 		<div class="row">
 			<div class="input-field col s12">
-				<textarea id="tableID" class="materialize-textarea" value="{{tableID}}"></textarea>
-				<label class="{{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
+				<textarea id="tableID" class="white-text materialize-textarea" value="{{tableID}}"></textarea>
+				<label class="white-text {{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
 			</div>
 		</div>
 
 	    <div class = "row">
 	      <div class="col s3">
-	        <input type="text" class="datepicker" id="listingDate">
-	        <label for="listingDate">Date</label>
+	        <input type="text" class="white-text datepicker" id="listingDate">
+	        <label class="white-text" for="listingDate">Date</label>
 	      </div>
 	      <div class="col s3">
-	        <input type="text" class="timepicker" id="startTime">
-	        <label for="startTime">Start Time</label>
+	        <input type="text" class="white-text timepicker" id="startTime">
+	        <label class="white-text" for="startTime">Start Time</label>
 	      </div>
 	      <div class="col s3">
-	        <input type="text" class="timepicker" id="endTime">
-	        <label for="endTime">End Time</label>
+	        <input type="text" class="white-text timepicker" id="endTime">
+	        <label class="white-text" for="endTime">End Time</label>
 	      </div>
 	    </div>
 
 		<div class = "row">
 			<div class="col s6">
-				<input type="number" name="discount" value="{{discount}}"/>
- 	      		<label class="{{#if discount}}active{{/if}}" for="discount">Discount </label>
+				<input class="white-text" type="number" name="discount" value="{{discount}}"/>
+ 	      		<label class="white-text {{#if discount}}active{{/if}}" for="discount">Discount </label>
  	     	</div>
 
 	     	<div class="col s6">
-	        	<input type="text" class="datepicker" id="dealExpiryDate">
-	        	<label for="dealExpiryDate">Deal Expiry Date</label>
+	        	<input type="text" class="white-text datepicker" id="dealExpiryDate">
+	        	<label class="white-text" for="dealExpiryDate">Deal Expiry Date</label>
 	      	</div>
 		</div>
 
@@ -105,7 +105,7 @@
 </script>
 <style>
   .input-field {
-    color: white;    
+    color: white;
   }
 </style>
 

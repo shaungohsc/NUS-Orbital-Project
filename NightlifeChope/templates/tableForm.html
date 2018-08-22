@@ -9,8 +9,8 @@
 
 	    <div class="row">
 	      <div class="input-field col s6">
-	    	 <input type="text" name="name" value="{{name}}" required>
-	       <label class="{{#if name}}active{{/if}}" for="name">Table Name</label>
+	    	 <input class="white-text" type="text" name="name" value="{{name}}" required>
+	       <label class="white-text {{#if name}}active{{/if}}" for="name">Table Name</label>
 	      </div>
 	    </div>
 
@@ -26,35 +26,35 @@
 	          <option value=7>7</option>
 	          <option value=8>8</option>
 	        </select>
-	       <label for="pax">Number of People</label>
+	       <label class="white-text" for="pax">Number of People</label>
 	      </div>
 
 	      <div class ="input-field col s3">
-	        <select name="venueType" id="{{#if venueType}}typeEdit{{/if}}">
+	        <select class="white-text" name="venueType" id="{{#if venueType}}typeEdit{{/if}}">
 	          <option value="" disabled selected>Select an option</option>
 	          <option value="club">Club</option>
 	          <option value="bar">Bar</option>
 	        </select>
-	       <label for="venueType">Venue Type</label>
+	       <label class="white-text" for="venueType">Venue Type</label>
 	      </div>
 
 	     <div class="input-field col s3">
-	       <input type="number" name="price" min="1" value="{{price}}"/>
-	       <label class="{{#if price}}active{{/if}}" for="price">Price</label>
+	       <input class="white-text" type="number" name="price" min="1" value="{{price}}"/>
+	       <label class="white-text {{#if price}}active{{/if}}" for="price">Price</label>
 	      </div>
 	    </div>
 
 	    <div class="row">
 	  	 <div class="input-field col s12">
-	      <textarea id="description" class="materialize-textarea" value="{{description}}"></textarea>
-	      <label class="{{#if description}}active{{/if}}" for="description"> Table Description</label>
+	      <textarea id="description" class="white-text materialize-textarea" value="{{description}}"></textarea>
+	      <label class="white-text {{#if description}}active{{/if}}" for="description"> Table Description</label>
 	    </div>
 	    </div>
 
 		<div class="row">
 			<div class="input-field col s12">
- 	      <textarea id="tableID" class="materialize-textarea" value="{{tableID}}"></textarea>
- 	      <label class="{{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
+ 	      <textarea id="tableID" class="white-text materialize-textarea" value="{{tableID}}"></textarea>
+ 	      <label class="white-text {{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
 	    	</div>
 		</div>
 

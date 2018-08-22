@@ -2,7 +2,7 @@
   <!--To display listings to the consumer for booking-->
 
 	<ul class="collection container">
-    
+
     {{#each listingsFiltered}}
         {{ > singleResult}}
     {{/each}}
@@ -17,7 +17,7 @@
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
     </div>
-  </div>  
+  </div>
 
     <script>
     $(document).ready(function(){
@@ -40,7 +40,7 @@
     {{/if}}
     for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
 
-    <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
+    <a href="#bookingModal" class="btn expand secondary-content modal-trigger">Book</a>
 		<br><span style="white-space: pre-line">{{description}}</span></li>
 </template>
 
@@ -49,7 +49,7 @@
   <li class="collection-item" style="padding: 5px 25px;"> <em>${{price}}</em> - {{formatDate date}}
     {{#if ../adminView}}
       <a href="#!" class="delete material-icons secondary-content">delete</a>
-      <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
+      <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a>
     {{else}}
       <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
     {{/if}}
@@ -64,7 +64,7 @@
     <i class="material-icons">local_bar</i>
   {{else if checkEq type "club"}}
     <i class="material-icons">stars</i>
-  {{/if}} 
+  {{/if}}
   for {{pax}}
   - <em>${{price}}
   </em>
