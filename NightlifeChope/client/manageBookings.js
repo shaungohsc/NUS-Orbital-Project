@@ -8,18 +8,29 @@ Template.manageBookingTemplate.onCreated(function manageBookingTemplateOnCreated
 });
 
 Template.manageBookingTemplate.helpers({
+  'codeEntered'(){
+    return Session.get("codeEntered");
+  },
   bookingsFiltered() {
     var booking = Listings.find({
       "booking.confirmationCode": Session.get("confirmationCode"),
-    }).fetch()[0];
+    }).fetch();
 
-    console.log("booking found");
-    return booking;
+    if (booking.length === 0) {
+      console.log("invalid code");
+      return false;
+    }
+
+    else {
+      console.log("booking found");
+      return booking[0];
+    }
   },
 });
 
 Template.manageBookingTemplate.events({
   'submit .manageBookingsForm'(event) {
+    Session.set("codeEntered", true);
     event.preventDefault();
 
     console.log(event.target.confirmationCode.value);
