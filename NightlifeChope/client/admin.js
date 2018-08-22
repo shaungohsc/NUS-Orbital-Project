@@ -16,6 +16,21 @@ Template.adminTemplate.helpers({
   }
 });
 
+Template.adminForm.helpers({
+  tableIDs(){
+    console.log("getting tableIDs");
+    var IDs = [];
+    var tables = Tables.find().fetch();
+    //console.log(tables);
+    for (i = 0; i < tables.length; i++) {
+      //console.log(i + " " + tables[i]);
+      //console.log("name: " + tables[i].name + " | ID: " + tables[i].tableID);
+      IDs.push({name: tables[i].name, ID: tables[i].tableID});
+    }
+    console.log(IDs);
+    return IDs;
+  }
+})
 Template.adminTemplate.events({
   'submit .listingForm'(event) {
     event.preventDefault();
