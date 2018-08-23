@@ -1,7 +1,11 @@
 <template name="resultsDisplay">
   <!--To display listings to the consumer for booking-->
 
+<<<<<<< HEAD
 	{{#if listingsFiltered}}
+=======
+  {{#if listingsFiltered}}
+>>>>>>> 357b4152719d36c93c5426666bc1e0b131c22273
     <ul class="collection container">
       {{#each listingsFiltered}}
           {{ > singleResult}}
@@ -10,7 +14,11 @@
   {{else}}
   <div class="container">
     <h2> No results found. </h2>
+<<<<<<< HEAD
   </div>
+=======
+  </div>	
+>>>>>>> 357b4152719d36c93c5426666bc1e0b131c22273
   {{/if}}
 
   <div id="bookingModal" class="modal">
