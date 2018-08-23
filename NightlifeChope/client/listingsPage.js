@@ -115,8 +115,11 @@ Template.resultsDisplay.helpers({
       { sort : { pax : 1 }}
     );
     console.log(results.count() + " results found");
-    console.log(listingsFiltered);
-    return results;
+    if (results.count() === 0) {
+      return false;
+    } else {
+      return results;
+    }    
   },
 })
 
