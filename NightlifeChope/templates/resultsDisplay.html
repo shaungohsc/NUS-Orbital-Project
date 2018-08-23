@@ -1,13 +1,17 @@
 <template name="resultsDisplay">
   <!--To display listings to the consumer for booking-->
 
-	<ul class="collection container">
-
-    {{#each listingsFiltered}}
-        {{ > singleResult}}
-    {{/each}}
-
-	</ul>
+  {{#if listingsFiltered}}
+    <ul class="collection container">
+      {{#each listingsFiltered}}
+          {{ > singleResult}}
+      {{/each}}
+    </ul>
+  {{else}}
+  <div class="container">
+    <h2> No results found. </h2>
+  </div>	
+  {{/if}}
 
   <div id="bookingModal" class="modal">
     <div class="modal-content">

@@ -34,6 +34,11 @@ body h1 {
   background-color: #1E180B !important;
 }
 
+.custom-emphasis {
+  background-color: #f1f1db !important;
+  color: #1E180B !important;
+}
+
 .custom-slight-yellow {
   color: #f1f1db !important;
 }
