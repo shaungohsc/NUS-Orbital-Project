@@ -1,13 +1,17 @@
 <template name="resultsDisplay">
   <!--To display listings to the consumer for booking-->
 
-	<ul class="collection container">
-
-    {{#each listingsFiltered}}
-        {{ > singleResult}}
-    {{/each}}
-
-	</ul>
+	{{#if listingsFiltered}}
+    <ul class="collection container">
+      {{#each listingsFiltered}}
+          {{ > singleResult}}
+      {{/each}}
+    </ul>
+  {{else}}
+  <div class="container">
+    <h2> No results found. </h2>
+  </div>
+  {{/if}}
 
   <div id="bookingModal" class="modal">
     <div class="modal-content">
@@ -32,16 +36,22 @@
 
 
 <template name="singleResult">
-	<li class="collection-item custom-dark-purple-l1"> <strong>{{name}}</strong>
-    {{#if checkEq type "bar"}}
-    <i class="tiny material-icons">local_bar</i>
-    {{else if checkEq type "club"}}
-    <i class="tiny material-icons">stars</i>
-    {{/if}}
-    for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
 
-    <a href="#bookingModal" class="btn expand secondary-content modal-trigger">Book</a>
-		<br><span style="white-space: pre-line">{{description}}</span></li>
+	<div class="row">
+		<li class="collection-item custom-dark-purple-l1"> <strong>{{name}}</strong>
+	    {{#if checkEq type "bar"}}
+			<strong> Bar </strong>
+	    <i class="tiny material-icons">local_bar</i>
+	    {{else if checkEq type "club"}}
+			<strong> Club </strong>
+	    <i class="tiny material-icons">stars</i>
+	    {{/if}}
+	    table for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
+
+	    <a href="#bookingModal" class="btn expand secondary-content modal-trigger">Book</a>
+			<br><span style="white-space: pre-line">{{description}}</span>
+		</li>
+	</div>
 </template>
 
 

@@ -69,7 +69,6 @@
     </div>
 
     <div class="col s2 valign-wrapper">
-      <label class="white-text" > Maximum Price </label>
       <p class="white-text range-field">
         <input type="range" name="price" min="200" max="2000">
         <output for="price" onforminput="value = price.valueAsNumber;"></output>
@@ -104,10 +103,12 @@
         // Fake a change to position bubble at page load
         .trigger('change');
         });
-      </script>
 
+      </script>
+      <label class="white-text" > Maximum Price </label>
     </div>
 
+    <br>
     <div class="col s2 valign-wrapper">
       <input class="white black-text btn waves-effect" type="submit" value="Search">
     </div>
