@@ -1,18 +1,20 @@
 <template name="adminTemplate">
     {{#if currentUser}}
-    <h1> Admin Dashboard </h1>
+    <div class="container">
+      <h1> Admin Dashboard </h1>
 
-    <div class="row">
-      <div class="col s12">
-        <ul class="custom-gold tabs">
-          <li class="tab col s3"><a class= "active" href="#test1">
-            <h6 class="white-text"> Add Table </h6> </a></li>
-          <li class="tab col s3"><a href="#test2">
-            <h6 class="white-text">Add Listing </h6> </a></li>
-        </ul>
+      <div class="row">
+        <div class="col s12">
+          <ul class="custom-gold tabs">
+            <li class="tab col s6"><a class= "active" href="#test1">
+              <h6 class="white-text"> Add Table </h6> </a></li>
+            <li class="tab col s6"><a href="#test2">
+              <h6 class="white-text">Add Listing </h6> </a></li>
+          </ul>
+        </div>
+        <div id="test1" class="col s12">{{>tableForm}}</div>
+        <div id="test2" class="col s12">{{>adminForm}}</div>
       </div>
-      <div id="test1" class="col s12">{{>tableForm}}</div>
-      <div id="test2" class="col s12">{{>adminForm}}</div>
     </div>
 
     <br><br>

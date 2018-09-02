@@ -12,8 +12,9 @@ header {
 }
 
 body {
-  background-color: #1E180B;
-  color: #f1f1db;
+  background-color: #140628;
+  /*color: #f1f1db;*/
+  color: #ffffff;
 }
 body h1 {
   font-size: 2em;
@@ -27,20 +28,21 @@ body h1 {
 }
 
 .custom-dark-purple {
-  background-color: #1E180B !important;
+  background-color: #140628 !important;
 }
 
 .custom-dark-purple-l1 {
-  background-color: #1E180B !important;
+  background-color: #140628 !important;
 }
 
 .custom-emphasis {
   background-color: #f1f1db !important;
-  color: #1E180B !important;
+  color: #281642 !important;
 }
 
 .custom-slight-yellow {
-  color: #f1f1db !important;
+  /*color: #f1f1db !important;*/
+  color: #ffffff;
 }
 
 
