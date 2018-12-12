@@ -2,10 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Listings } from '../imports/api/listings.js';
 
-// Template.bookingTemplate.onCreated(function bookingTemplateOnCreated() {
-//   Meteor.subscribe('listings');
-// });
-
 Template.bookingTemplate.helpers({
    currentListing() {
     console.log("Current listing:");
@@ -29,7 +25,6 @@ Template.bookingTemplate.events({
 
     console.log(bookingName + " " + bookingEmail + " "
         + bookingMobile + " " + bookingPax + " " + bookingUser);
-
 
     var id = Session.get('selectedListing')._id;
 

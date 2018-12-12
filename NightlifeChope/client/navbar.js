@@ -1,5 +1,8 @@
 import './html/navbar.html'
 import './html/main.html'
+/*
+  Detects changes in the URL tail and dynamically sets the correct template
+*/
 
 Template.navbar.helpers({
   template_name(){

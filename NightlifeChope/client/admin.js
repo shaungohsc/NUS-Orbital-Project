@@ -1,11 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import './html/navbar.html'
-import './html/main.html'
-
 import { Listings } from '../imports/api/listings.js';
 import { Tables } from '../imports/api/listings.js';
-//import { Listings } from '../server/main.js';
+
+import './html/navbar.html'
+import './html/main.html'
 
 Template.adminTemplate.helpers({
     UserImages: function() {
@@ -18,13 +17,11 @@ Template.adminTemplate.helpers({
 
 Template.adminForm.helpers({
   tableIDs(){
-    console.log("getting tableIDs");
     var IDs = [];
     var tables = Tables.find().fetch();
-    //console.log(tables);
     for (i = 0; i < tables.length; i++) {
-      //console.log(i + " " + tables[i]);
-      //console.log("name: " + tables[i].name + " | ID: " + tables[i].tableID);
+      console.log(i + " " + tables[i]);
+      console.log("name: " + tables[i].name + " | ID: " + tables[i].tableID);
       IDs.push({name: tables[i].name, ID: tables[i].tableID});
     }
     console.log(IDs);
@@ -34,9 +31,6 @@ Template.adminForm.helpers({
 Template.adminTemplate.events({
   'submit .listingForm'(event) {
     event.preventDefault();
-
-    //Call Meteor method
-    // Meteor.call('listings.insert', event.target);
 
     console.log("submit .listingForm");
     console.log(event);
@@ -91,7 +85,6 @@ Template.adminTemplate.events({
     var tableDesc = target.description.value;
     var price = target.price.value;
     var createdBy = Meteor.user().username;
-    // var date = ()
     var tableID = target.tableID.value;
 
     console.log(tableName + " " + tableDesc + " " + createdBy + " | " + target.venueType.value);
@@ -118,7 +111,6 @@ Template.adminTemplate.events({
 		var file = $('#eventImage').get(0).files[0];
 
 		if (file) {
-
 			fsFile = new FS.File(file);
 
 			EventImages.insert(fsFile, function(err, result){
@@ -135,15 +127,7 @@ Template.adminTemplate.events({
 					console.log("Profile Update Successful!"+result._id);
 				}
 			});
-
 		}
 		return true;
 	}
 });
-
-
-
-/*Meteor.publish("fileUploads", function () {
-  console.log("publishing fileUploads");
-  return YourFileCollection.find();
-});*/

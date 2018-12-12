@@ -1,3 +1,5 @@
+// FS Implementation currently doesn't work
+
 EventImages = new FS.Collection("EventImages", {
 	stores: [new FS.Store.GridFS("EventImages")]
 });

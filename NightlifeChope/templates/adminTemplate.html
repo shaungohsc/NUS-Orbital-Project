@@ -1,5 +1,8 @@
 <template name="adminTemplate">
-    {{#if currentUser}}
+  <!--Interface For administrators to edit listings and tables for their venues-->
+  <!-- checks if user is logged in before allowing access to this page -->
+
+  {{#if currentUser}}
     <div class="container">
       <h1> Admin Dashboard </h1>
 
@@ -9,7 +12,7 @@
             <li class="tab col s6"><a class= "active" href="#test1">
               <h6 class="white-text"> Add Table </h6> </a></li>
             <li class="tab col s6"><a href="#test2">
-              <h6 class="white-text">Add Listing </h6> </a></li>
+              <h6 class="white-text"> Add Listing </h6> </a></li>
           </ul>
         </div>
         <div id="test1" class="col s12">{{>tableForm}}</div>
@@ -20,19 +23,14 @@
     <br><br>
     <h5 class="container"> Displaying your created listings </h5>
     <br>
-    {{ > listingsDisplay adminView=true}}
+  {{ > listingsDisplay adminView=true}}
 
-    {{else}}
+  {{else}}
     <h1> You are not authorised to view this page.</h1>
-    {{/if}}
-
+  {{/if}}
 
   <script>
    $(document).ready(function(){
-      // $('select').formSelect();
-      // $('.datepicker').datepicker({format: 'yyyy-mm/dd'});
-      // $('.timepicker').timepicker();
-      // $('.tabs').tabs();
       M.AutoInit();
     });
   </script>

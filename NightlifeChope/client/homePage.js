@@ -2,8 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Queries } from '../imports/api/queries.js';
 import { Session } from 'meteor/session';
-//import noUiSlider from 'nouislider';
-// import noUiSlider from '../imports/noUiSlider.11.1.0/nouislider.js';
 import noUiSlider from '../node_modules/materialize-css/extras/nouislider/nouislider.js';
 
 Template.homeTemplate.onCreated(function homeTemplateOnCreated() {
@@ -40,38 +38,6 @@ Template.homeTemplate.onRendered(function() {
   console.log(this.$('#priceSlider'));
 });
 
-/*
- var range = document.getElementById('priceSlider');
-   noUiSlider.create(range, {
-     behaviour: 'tap',
-     connect: true,
-     start: [300, 1500],
-     range: {
-       'min': 200,
-       'max': 2000
-     },
-     step: 50,
-     snap: true,
-     // ... must be at least 300 apart
-     margin: 500,
-     // ... but no more than 600
-     limit: 1800,
-     // Display colored bars between handles
-     connect: true,
-     // display orientation
-     direction: 'ltr',
-     orientation: 'horizontal',
-
-     tooltips: true,
-
-     pips: {
-       mode: 'steps',
-       stepped: true,
-       density: 2
-     }
-   });
-*/
-
 Template.homeTemplate.events({
   'click book'() {
     Session.set('selectedListing', this);
@@ -96,8 +62,7 @@ Template.homeTemplate.events({
     Session.set("queryDate", queryDate);
     Session.set("queryNumPax", queryNumPax);
     Session.set("queryPrice", queryPrice);
-    // Session.set("queryBars", queryBars);
-    // Session.set("queryClubs", queryClubs);
+
     if (queryBars && queryClubs) {
       Session.set("queryType", ["bar","club"]);
     } else if (queryBars) {

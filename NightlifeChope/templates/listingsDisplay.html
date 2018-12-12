@@ -1,23 +1,10 @@
-<template name="listingsDisplay"> <!-- for admin panel -->
+<template name="listingsDisplay">
+  <!-- CRUD interface for admin page -->
 
   <ul class="collection container">
-    
     {{#each tables}}
       {{ > singleTable}}
     {{/each}}
-
-    <!--
-    {{#if adminView}} 
-      {{#each listings}}
-        {{ > singleListing}}
-      {{/each}}
-    {{else}}
-      {{#each listingsFiltered}}
-        {{ > singleListing}}
-      {{/each}}
-    {{/if}}
-    -->
-
   </ul>
 
   <div id="table_edit_modal" class="modal">
@@ -40,18 +27,6 @@
     </div>
   </div>
 
-  <!-- should only be relevant in resultsDisplay
-  <div id="bookingModal" class="modal">
-    <div class="modal-content">
-      <h5>Viewing Listing</h5>
-      {{ > bookListing currentListing}}
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect btn-flat">Cancel</a>
-    </div>
-  </div>  
--->
-
   <script>
     $(document).ready(function(){
         $('.modal').modal();
@@ -60,39 +35,17 @@
           $('.timepicker').timepicker();
       });
   </script>
-
 </template>
-
-
-<!--<template name="singleListing">
-  <li class="collection-item"> <strong>{{name}}</strong>
-    {{#if checkEq type "bar"}}
-    <i class="tiny material-icons">local_bar</i>
-    {{else if checkEq type "club"}}
-    <i class="tiny material-icons">stars</i>
-    {{/if}}
-    for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
-    {{#if ../adminView}}
-      <a href="#!" class="delete material-icons secondary-content">delete</a>
-      <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a> 
-    {{else}}
-      <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
-    {{/if}}
-    <br><span style="white-space: pre-line">{{description}}</span></li>
-</template>
--->
 
 <template name="singleListing">
-  <li class="collection-item custom-dark-purple-l1" style="padding: 5px 0px;"> 
+  <li class="collection-item custom-dark-purple-l1" style="padding: 5px 0px;">
     &nbsp;&nbsp;{{#if checkEq name ../name}}{{else}}<strong class="custom-emphasis">{{name}}</strong> - {{/if}} <!-- if listing name !equals table name, display -->
     <em>${{price}}</em> - {{formatDate date}}
     {{#if checkEq booking null}}{{else}}&nbsp;&nbsp;&nbsp;<span style="background-color: #3f3c6b">&nbsp;Booked by {{booking.bookingName}} ({{booking.confirmationCode}})&nbsp;</span>{{/if}}
     <a href="#!" class="delete_listing material-icons secondary-content">delete</a>
-    <a href="#listing_edit_modal" class="edit_listing material-icons secondary-content modal-trigger">edit</a> 
+    <a href="#listing_edit_modal" class="edit_listing material-icons secondary-content modal-trigger">edit</a>
     <br>
     {{#if checkEq description ../description}}{{else}}<span style="white-space: pre-line">&nbsp;&nbsp;{{description}}</span>{{/if}}
-   
-    
   </li>
 </template>
 
@@ -104,9 +57,9 @@
     <i class="tiny material-icons">stars</i>
     {{/if}}
     for {{pax}} - <em>${{price}}</em> - ({{tableID}})
-    
+
     <a href="#!" class="delete_table material-icons secondary-content">delete</a>
-    <a href="#table_edit_modal" class="edit_table material-icons secondary-content modal-trigger">edit</a> 
+    <a href="#table_edit_modal" class="edit_table material-icons secondary-content modal-trigger">edit</a>
 
     <br><span style="white-space: pre-line">{{description}}</span>
 
@@ -126,36 +79,36 @@
     nope
     {{/if}}
   <form class = "editform col s12 container">
-        <div class="row">
-          <div class="input-field col s6">
-           <input type="text" name="name" value={{name}} />
-           <label for="name" class="active">Listing Name</label>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class ="input-field col s6">
-            <select name="pax">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-           <label for="pax">Number of People</label>
-            
-          </div>
-          <br>
-        </div>
+    <div class="row">
+      <div class="input-field col s6">
+       <input type="text" name="name" value={{name}} />
+       <label for="name" class="active">Listing Name</label>
+      </div>
+    </div>
 
-        <div class="row">
-         <div class="input-field col s12">
-          <textarea id="description" class="materialize-textarea" value={{description}}></textarea>
-          <label for="description" class="active">Description</label>
-        </div>
-        </div>
+    <div class="row">
+      <div class ="input-field col s6">
+        <select name="pax">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+       <label for="pax">Number of People</label>
 
-        <button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="submitEdit">Submit <i class="material-icons right">send</i> </button>
-        <button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
-      </form>
-  </template>
+      </div>
+      <br>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="description" class="materialize-textarea" value={{description}}></textarea>
+        <label for="description" class="active">Description</label>
+      </div>
+    </div>
+
+    <button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="submitEdit">Submit <i class="material-icons right">send</i> </button>
+    <button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
+  </form>
+</template>

@@ -2,13 +2,6 @@
 	<div>
 	  <form class = "tableForm ">
 
-	  	<!--
-		<div class="row">
-	  	Default Image: <input class="white-text" type="file" name="image"
-	    placeholder="Image" /> <br> <br>
-		</div>
-	-->
-
 	    <div class="row">
 	      <div class="input-field col s6">
 	    	 <input class="white-text" type="text" name="name" value="{{name}}" required>
@@ -32,48 +25,50 @@
 	      </div>
 
 	      <div class ="input-field col s3">
-	        <select class="white-text" name="venueType" id="{{#if venueType}}typeEdit{{/if}}">
-	          <option value="" disabled selected>Select an option</option>
-	          <option value="club">Club</option>
-	          <option value="bar">Bar</option>
-	        </select>
-	       <label class="white-text" for="venueType">Venue Type</label>
+	      		<select class="white-text" name="venueType" id="{{#if venueType}}typeEdit{{/if}}">
+		          <option value="" disabled selected>Select an option</option>
+		          <option value="club">Club</option>
+		          <option value="bar">Bar</option>
+	      		</select>
+	      	<label class="white-text" for="venueType">Venue Type</label>
 	      </div>
 
-	     <div class="input-field col s3">
-	       <input class="white-text" type="number" name="price" min="1" value="{{price}}"/>
-	       <label class="white-text {{#if price}}active{{/if}}" for="price">Price</label>
-	      </div>
+	     	<div class="input-field col s3">
+	      	<input class="white-text" type="number" name="price" min="1" value="{{price}}"/>
+	      	<label class="white-text {{#if price}}active{{/if}}" for="price">Price</label>
+	    	</div>
 	    </div>
 
 	    <div class="row">
-	  	 <div class="input-field col s12">
-	      <textarea id="description" class="white-text materialize-textarea" value="{{description}}"></textarea>
-	      <label class="white-text {{#if description}}active{{/if}}" for="description"> Table Description</label>
-	    </div>
+		  	 <div class="input-field col s12">
+		      <textarea id="description" class="white-text materialize-textarea" value="{{description}}"></textarea>
+		      <label class="white-text {{#if description}}active{{/if}}" for="description"> Table Description</label>
+		    </div>
 	    </div>
 
 		<div class="row">
 			<div class="input-field col s12">
  	      <textarea id="tableID" class="white-text materialize-textarea" value="{{tableID}}"></textarea>
  	      <label class="white-text {{#if tableID}}active{{/if}}" for="tableID"> Table ID</label>
-	    	</div>
+	    </div>
 		</div>
 
 	    {{#if name}}
-	    	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="edit_table_form">Submit <i class="material-icons right">send</i> </button>
-  	  		<button class="btn waves-effect waves-light modal-close" style="color:gray">Cancel</button>
+	    	<button class="btn waves-effect waves-light modal-close" type="submit" name="submit" id="edit_table_form">
+					Submit <i class="material-icons right">send</i> </button>
+  	  	<button class="btn waves-effect waves-light modal-close" style="color:gray">
+					Cancel</button>
   	  	{{else}}
   	  		<button class="btn waves-effect waves-light" type="submit" name="submit" id="create_table_form">Submit <i class="material-icons right">send</i> </button><br>
 	  	{{/if}}
 	  </form>
 	</div>
 
-<script>
-	$(function() {
-		var temp="a";
-		$("#paxabc").val(temp);
-	});
-</script>
+	<script>
+		$(function() {
+			var temp="a";
+			$("#paxabc").val(temp);
+		});
+	</script>
 
 </template>

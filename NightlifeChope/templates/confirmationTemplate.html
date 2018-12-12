@@ -1,66 +1,67 @@
 <template name="confirmationTemplate">
   {{#with currentListing}}
-  <div class="row white-text container">
-    <div class="col s1">
-      <h1> <i class="material-icons md-48">done_outline</i> </h1>
-    </div>
-
-    <div class="col s11 container">
-      <h1> <strong> Your reservation has been confirmed!</strong> </h1>
-      <p>
-        At the door, please produce your ID card.
-        Enjoy your evening!
-      </p>
-    </div>
-  </div>
-
-  <div class="row white-text">
-    <div class="col s10 container">
-      <h2> Confirmation Code: </h2>
-      <h2> <strong> {{booking.confirmationCode}} </strong> </h2> <br>
-    </div>
-  </div>
-
-  <div class="container">
-    <h2> Booking Details </h2>
-    <div class="divider"></div> <br>
-    <div class="row">
-      <div class="col s4">
-        <strong> Date </strong> {{formatDate date}}
+    <div class="row white-text container">
+      <div class="col s1">
+        <h1> <i class="material-icons md-48">done_outline</i> </h1>
       </div>
 
-      <div class="col s4">
-        <!--<strong> Doors Open </strong>-->
+      <div class="col s11 container">
+        <h1> <strong> Your reservation has been confirmed!</strong> </h1>
+        <p>
+          At the door, please produce your ID card.
+          Enjoy your evening!
+        </p>
       </div>
     </div>
 
-    <div class="divider"></div> <br>
-    <div class="row">
-      <div class="col s4">
-        <strong> Name </strong> {{booking.bookingName}}
-      </div>
-
-      <div class="col s4">
-        <strong> Email </strong> {{booking.bookingEmail}}
+    <div class="row white-text">
+      <div class="col s10 container">
+        <h2> Confirmation Code: </h2>
+        <h2> <strong> {{booking.confirmationCode}} </strong> </h2> <br>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col s4">
-        <strong> Mobile Number </strong> {{booking.bookingMobile}}
+    <div class="container">
+      <h2> Booking Details </h2>
+      <div class="divider"></div> <br>
+
+      <div class="row">
+        <div class="col s4">
+          <strong> Date </strong> {{formatDate date}}
+        </div>
+
+        <div class="col s4">
+          <!--<strong> Doors Open </strong>-->
+        </div>
+      </div>
+
+      <div class="divider"></div> <br>
+      <div class="row">
+        <div class="col s4">
+          <strong> Name </strong> {{booking.bookingName}}
+        </div>
+
+        <div class="col s4">
+          <strong> Email </strong> {{booking.bookingEmail}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s4">
+          <strong> Mobile Number </strong> {{booking.bookingMobile}}
+        </div>
+      </div>
+
+      <div class="divider"></div> <br>
+      <div class="row">
+        <div class="col s4">
+          <strong> Number of Guests </strong> {{booking.bookingPax}}
+        </div>
+
+        <div class="col s4">
+          <strong> Total </strong> ${{price}}
+        </div>
       </div>
     </div>
-
-    <div class="divider"></div> <br>
-    <div class="row">
-      <div class="col s4">
-        <strong> Number of Guests </strong> {{booking.bookingPax}}
-      </div>
-
-      <div class="col s4">
-        <strong> Total </strong> ${{price}}
-      </div>
-    </div>
-  </div>
-{{/with}}
+  {{/with}}
 </template>

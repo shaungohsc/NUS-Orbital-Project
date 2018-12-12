@@ -1,4 +1,3 @@
-/* CSS declarations go here */
 
 header {
   width: 100%;
@@ -16,6 +15,7 @@ body {
   /*color: #f1f1db;*/
   color: #ffffff;
 }
+
 body h1 {
   font-size: 2em;
   font-style: normal;
@@ -44,8 +44,6 @@ body h1 {
   /*color: #f1f1db !important;*/
   color: #ffffff;
 }
-
-
 
 body h2 {
   font-size: 1.5em;
@@ -78,7 +76,6 @@ header navbar {
   margin-bottom: auto;
   display: block;
   background-color: #a98842;
-
 }
 
 .input-field {
@@ -90,11 +87,13 @@ header navbar {
  border-bottom: 1px solid #ffffff;
  box-shadow: 0 1px 0 0 #000;
 }
+
 /* invalid color */
 .input-field input[type=text].invalid {
  border-bottom: 1px solid #ffffff;
  box-shadow: 0 1px 0 0 #000;
 }
+
 /* main part of the webpage, the part that changes */
 #__blaze-root {
   border: 0%;s
@@ -117,7 +116,6 @@ header navbar {
 }
 
 /* Slider */
-
 output {
   position: absolute;
   background-image: linear-gradient(top, #444444, #999999);
@@ -132,6 +130,7 @@ output {
   left: 0;
   margin-left: -1%;
 }
+
 output:after {
   content: "";
   position: absolute;

@@ -8,7 +8,7 @@ Template.manageBookingTemplate.onCreated(function manageBookingTemplateOnCreated
 });
 
 Template.manageBookingTemplate.helpers({
-  'codeEntered'(){
+  'codeEntered'() {
     return Session.get("codeEntered");
   },
   bookingsFiltered() {
@@ -36,8 +36,9 @@ Template.manageBookingTemplate.events({
     console.log(event.target.confirmationCode.value);
     Session.set("confirmationCode", event.target.confirmationCode.value);
   },
+
   'click .cancel_booking'() {
-    if(confirm('Cancel booking?')){
+    if(confirm('Cancel booking?')) {
       console.log(Listings.find({_id: this._id}).fetch()[0]);
       Listings.update(this._id, {
         $set: { booking: null },

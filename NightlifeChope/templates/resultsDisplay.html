@@ -1,19 +1,16 @@
 <template name="resultsDisplay">
-  <!--To display listings to the consumer for booking-->
+  <!--To display event listing reuslts to users for booking-->
 
 	{{#if listingsFiltered}}
-
-  <ul class="collection container">
-    {{#each listingsFiltered}}
-        {{ > singleResult}}
-    {{/each}}
-  </ul>
+	  <ul class="collection container">
+	    {{#each listingsFiltered}}
+	        {{ > singleResult}}
+	    {{/each}}
+	  </ul>
   {{else}}
-  <div class="container">
-    <h2> No results found. </h2>
-
-  </div>
-
+	  <div class="container">
+	    <h2> No results found. </h2>
+	  </div>
   {{/if}}
 
   <div id="bookingModal" class="modal">
@@ -26,7 +23,7 @@
     </div>
   </div>
 
-    <script>
+  <script>
     $(document).ready(function(){
         $('.modal').modal();
         $('select').formSelect();
@@ -34,58 +31,48 @@
           $('.timepicker').timepicker();
       });
   </script>
-
 </template>
-
 
 <template name="singleResult">
 
 	<div class="row">
-		<li class="collection-item custom-dark-purple-l1"> <strong>{{name}}</strong>
+		<li class="collection-item custom-dark-purple-l1"> <strong> {{name}} </strong>
 	    {{#if checkEq type "bar"}}
-			<!--<strong> Bar </strong>-->
-	    <i class="tiny material-icons">local_bar</i>
+				<!--<strong> Bar </strong>-->
+		    <i class="tiny material-icons">local_bar</i>
 	    {{else if checkEq type "club"}}
-			<!--<strong> Club </strong>-->
-	    <i class="tiny material-icons">stars</i>
+				<!--<strong> Club </strong>-->
+		    <i class="tiny material-icons">stars</i>
 	    {{/if}}
 	    table for {{pax}} - <em>${{price}}</em> - {{formatDate date}}
 
-	    <a href="#bookingModal" class="btn expand secondary-content modal-trigger">Book</a>
-			<br><span style="white-space: pre-line">{{description}}</span>
+	    <a href="#bookingModal" class="btn expand secondary-content modal-trigger"> Book </a>
+			<br>
+			<span style="white-space: pre-line">{{description}}</span>
 		</li>
 	</div>
 </template>
 
-
-<!-- <template name="singleListing">
-  <li class="collection-item" style="padding: 5px 25px;"> <em>${{price}}</em> - {{formatDate date}}
-    {{#if ../adminView}}
-      <a href="#!" class="delete material-icons secondary-content">delete</a>
-      <a href="#modal1" class="edit material-icons secondary-content modal-trigger">edit</a>
-    {{else}}
-      <a href="#bookingModal" class="expand material-icons secondary-content modal-trigger">zoom_in</a>
-    {{/if}}
-    <br><span style="white-space: pre-line">{{description}}</span></li>
-</template> -->
-
-
 <template name="bookListing">
-
   <span style="font-size: x-large"> <strong >{{name}}</strong>
-  {{#if checkEq type "bar"}}
-    <i class="material-icons">local_bar</i>
-  {{else if checkEq type "club"}}
-    <i class="material-icons">stars</i>
-  {{/if}}
-  for {{pax}}
-  - <em>${{price}}
-  </em>
-  <br>
-  {{formatDate date}}
+	  {{#if checkEq type "bar"}}
+	    <i class="material-icons">local_bar</i>
+	  {{else if checkEq type "club"}}
+	    <i class="material-icons">stars</i>
+	  {{/if}}
+
+	  for {{pax}}
+	  - <em>${{price}}
+	  </em>
+	  <br>
+
+	  {{formatDate date}}
   </span>
   <p style="font-size: large">{{description}}</p>
 
-    <a href="/booking"><button class="btn waves-effect waves-light modal-close" type="submit" name="book">Make Booking <i class="material-icons right">send</i></button></a>
-
+  <a href="/booking">
+		<button class="btn waves-effect waves-light modal-close" type="submit" name="book">
+			Make Booking <i class="material-icons right"> send </i>
+		</button>
+	</a>
 </template>
