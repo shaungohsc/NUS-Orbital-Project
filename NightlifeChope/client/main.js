@@ -12,5 +12,5 @@ import '../imports/startup/accounts-config.js';
 
 Meteor.startup(() => {
   // code to run on server at startup
-  Session.set("searched" : false); //whether user has searched
+  Session.set("searched", false); //whether user has searched
 });

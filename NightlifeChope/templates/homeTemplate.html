@@ -2,25 +2,25 @@
   <div class="slider">
    <ul class="slides">
      <li>
-       <img src="https://scontent.fsin2-1.fna.fbcdn.net/v/t1.0-9/37821903_2066731703339051_6655998246965477376_o.jpg?_nc_cat=0&oh=25ef7a4b64ba62e2c54d1c12dc82caa1&oe=5BD4CA94">
+       <img src="https://drive.google.com/uc?id=1mDLSkhLGniB3FasvyInWYApgXs0OSwl1">
        <div class="caption left-align">
          <h3 class="light grey-text text-lighten-3">Zouk</h3>
        </div>
      </li>
      <li>
-       <img src="https://scontent.fsin2-1.fna.fbcdn.net/v/t1.0-9/36678950_10155935504752804_2779985339740061696_o.jpg?_nc_cat=0&oh=db27b786ff2c82b7243696b27e07c1cf&oe=5BDA4098">
+       <img src="https://drive.google.com/uc?id=1rK231q9cgut7_PCUnsCDKWmYH58DyjeF">
        <div class="caption left-align">
          <h3 class="light grey-text text-lighten-3">Attica</h3>
        </div>
      </li>
      <li>
-       <img src="https://scontent.fsin2-1.fna.fbcdn.net/v/t1.0-9/36064523_2133331653363480_6024157018116325376_o.jpg?_nc_cat=0&oh=2d6398a32db22ed30fb2c602592fcf38&oe=5BC8E548">
+       <img src="https://drive.google.com/uc?id=13Ansc3dtqslhDVfaTYipiJxhK5EX2miR">
        <div class="caption left-align">
          <h3 class="light grey-text text-lighten-3">1-Altitude</h3>
        </div>
      </li>
      <li>
-       <img src="https://scontent.fsin2-1.fna.fbcdn.net/v/t1.0-9/36820604_1755824321171605_7689698614850879488_o.jpg?_nc_cat=0&oh=3bfbc6ab25533ae30d46f1e4b4af12de&oe=5BC59EC0">
+       <img src="https://drive.google.com/uc?id=1mwcWuwNsApCqfJwZ2XDQ7D1LNra4jClY">
        <div class="caption left-align">
          <h3 class="light grey-text text-lighten-3">Canvas</h3>
        </div>
@@ -37,7 +37,7 @@
         <label class="white-text" for="date"> Date </label>
       </div>
 
-      <div class="input-field col s2 valign-wrapper">
+      <div class="input-field col s2">
         <select name="pax">
           <option class="white-text" value=2>2 Guests</option>
           <option value=3>3 Guests</option>
@@ -47,73 +47,43 @@
           <option value=7>7 Guests</option>
           <option value=8>8 Guests</option>
         </select>
-        <label class="white-text"> Number of Guests </label>
       </div>
 
-      <div class="col s3 valign-wrapper">
-        <p class="white-text"> Search For &nbsp;&nbsp;&nbsp;</p>
-        <p>
+      <div class="col s3">
+
+        <p class="white-text"> &nbsp; Search For: &nbsp; &nbsp; &nbsp;
           <label class="white-text">
             <input type="checkbox" name="clubsBool" class="filled-in" checked="checked" />
             <span> Clubs</span>
           </label>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        </p>
-        <p>
+
+          &nbsp; &nbsp; &nbsp;
           <label class="white-text">
             <input type="checkbox" name="barsBool" class="filled-in" checked="checked" />
             <span> Bars </span>
           </label>
         </p>
+      </div>
+
+      <div class="col s1">
+        <p class="white-text range-field">
+          <input type="range" name="price" min="200" max="2000">
+        </p>
+      </div>
+
+      <div class="col s1">
+        <p class="white-text">
+          Maximum Price
+        </p>
+      </div>
+
+      <br>
+      <div class="col s1">
+        <input class="white black-text btn waves-effect" type="submit" value="Search">
+      </div>
+
+      </form>
     </div>
-
-    <div class="col s2 valign-wrapper">
-      <p class="white-text range-field">
-        <input type="range" name="price" min="200" max="2000">
-        <output for="price" onforminput="value = price.valueAsNumber;"></output>
-      </p>
-      <script>
-        // DOM Ready
-        $(function() {
-        var el, newPoint, newPlace, offset;
-        // Select all range inputs, watch for change
-        $("input[type='range']").change(function() {
-         // Cache this for efficiency
-         el = $(this);
-         // Measure width of range input
-         width = el.width();
-         // Figure out placement percentage between left and right of input
-         newPoint = (el.val() - el.attr("min")) / (el.attr("max") - el.attr("min"));
-         // Janky value to get pointer to line up better
-         offset = -1.3;
-         // Prevent bubble from going beyond left or right (unsupported browsers)
-         if (newPoint < 0) { newPlace = 0; }
-         else if (newPoint > 1) { newPlace = width; }
-         else { newPlace = width * newPoint + offset; offset -= newPoint; }
-         // Move bubble
-         el
-           .next("output")
-           .css({
-             left: newPlace,
-             marginLeft: offset + "%"
-           })
-           .text(el.val());
-        })
-        // Fake a change to position bubble at page load
-        .trigger('change');
-        });
-
-      </script>
-      <label class="white-text" > Maximum Price </label>
-    </div>
-
-    <br>
-    <div class="col s2 valign-wrapper">
-      <input class="white black-text btn waves-effect" type="submit" value="Search">
-    </div>
-
-    </form>
-  </div>
   </div>
 
 
